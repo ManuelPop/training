@@ -32,13 +32,17 @@ public class RequestTest {
 
 	@Steps
 	public newrequestSteps newrequest;
-
+	
+	@Steps
+	public newrequestSteps startdate;
+	
 	@Test
 	public void test() {
 
 		loginstep.login(Constants.PMuser, Constants.PMpassword);
-		loginstep.clickOnTheVacationMenuItem();
+		loginstep.clickVacation();
 		newrequest.clickOnNewRequest();
+		newrequest.clickOnStartDate();
 
 	}
 
