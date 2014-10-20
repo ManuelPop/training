@@ -28,6 +28,8 @@ public class Loginpage extends PageObject {
     
     @FindBy(css="input[type=submit]")
     private WebElementFacade SignButton;
+    
+   
 
     public void enter_username(String username) {
     	name.type(username);
@@ -39,5 +41,8 @@ public class Loginpage extends PageObject {
       
     public void sign_in() {
     	SignButton.click();
+    	
     }
+    
+    
 }

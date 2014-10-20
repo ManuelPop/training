@@ -2,7 +2,7 @@ package com.steps;
 
 import Constants.Constants;
 
-
+import com.pages.AfterloginPage;
 import com.pages.DictionaryPage;
 import com.pages.Loginpage;
 
@@ -39,8 +39,11 @@ public class Loginsteps extends ScenarioSteps {
 	public void login(String username,String password){
 		
 		getDriver().get(Constants.baseUrl);
-		loginpage.enter_username(Constants.PMuser);
-		loginpage.enter_password(Constants.PMpassword);
+		loginpage.enter_username(username);
+		loginpage.enter_password(password);
 		loginpage.sign_in();
+				
 	}
+	
+	
 }
