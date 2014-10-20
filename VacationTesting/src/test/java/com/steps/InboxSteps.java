@@ -69,7 +69,7 @@ public class InboxSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void verifyText(String txt){
+	public void verifySuccessfulyMessage(String txt){
 		inbox.verifyText(txt);		
 	
 		
