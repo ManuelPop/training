@@ -5,11 +5,14 @@ import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.steps.ScenarioSteps;
 import Constants.Constants;
 
+import com.pages.HomePage;
 import com.pages.Loginpage;
 
 public class Loginsteps extends ScenarioSteps {
 
 	Loginpage loginpage;
+	HomePage homepage;
+	
 	
 	@Step
     	public void insertUsername(String username) {
@@ -36,6 +39,13 @@ public class Loginsteps extends ScenarioSteps {
 		loginpage.sign_in();
 				
 	}
+	
+	@Step
+	 public void clickVacation(){
+		 
+		 getDriver().get("http://192.168.1.68:9090/home");
+		 homepage.clickOnTheVacationMenuItem();
+	 }
 	
 	
 }

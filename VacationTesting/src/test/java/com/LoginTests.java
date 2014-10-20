@@ -29,10 +29,13 @@ public class LoginTests {
     @Steps
     public Loginsteps loginstep;
 
+    
     @Test
     public void test(){
     	
     	loginstep.login(Constants.PMuser, Constants.PMpassword);
+    	loginstep.clickVacation();
+    	
     }
     
     
