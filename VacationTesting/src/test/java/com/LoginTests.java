@@ -8,7 +8,7 @@ import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.junit.runners.ThucydidesRunner;
-
+import Constants.Constants;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -35,7 +35,7 @@ public class LoginTests {
     @Test
     public void test(){
     	
-    	loginstep.login("rares.persa", "1231");
+    	loginstep.login(Constants.DMuser,Constants.DMpassword);
     }
     
     
