@@ -61,7 +61,7 @@ public class MyFreeDaysSteps extends ScenarioSteps {
 	}
 	
 	@Step
-    public void assureMyFreeDaysTitle(){
+    public void verifyMyFreeDaysTitle(){
         WebElement message = getDriver().findElement(By.cssSelector("div[class='content-title']"));
         Assert.assertTrue("Test failed! The title was not found!",
         message.getText().toLowerCase().contains("My Free Days".toLowerCase()));
