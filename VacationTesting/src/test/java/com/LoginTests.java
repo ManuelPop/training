@@ -1,22 +1,20 @@
 package com;
 
-import net.thucydides.core.annotations.Issue;
+import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.junit.runners.ThucydidesRunner;
-import Constants.Constants;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import com.requirements.Application;
-import com.steps.EndUserSteps;
-import com.steps.Loginsteps;
 import Constants.Constants;
+
+import com.requirements.Application;
+import com.steps.Loginsteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
 public class LoginTests {
