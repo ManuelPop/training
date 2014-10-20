@@ -1,7 +1,6 @@
 package com.steps;
 
-import junit.framework.Assert;
-
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import net.thucydides.core.annotations.Step;
@@ -63,8 +62,7 @@ public class MyFreeDaysSteps extends ScenarioSteps {
 	@Step
     public void verifyMyFreeDaysTitle(String titlu){
         WebElement message = getDriver().findElement(By.cssSelector("div[class='content-title']"));
-        Assert.assertTrue("Test failed! The title was not found!",
-        message.getText().toLowerCase().contains(titlu.toLowerCase()));
+        Assert.assertTrue(message.getText().toLowerCase().contains(titlu.toLowerCase()));
     }
 	
 	
