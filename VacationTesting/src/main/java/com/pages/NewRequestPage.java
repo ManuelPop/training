@@ -12,5 +12,23 @@ public class NewRequestPage extends PageObject {
 	public void clickOnNewRequest() {
 		newrequest.click();
 	}
-
+	
+	
+	@FindBy(css = "button[class='Zebra_DatePicker_Icon']")	
+	private WebElementFacade startdate;
+	public void clickOnStartDate()
+	{
+		startdate.click();
+		
+	}
+	
+	@FindBy(css = "td[class='dp_selected dp_current']")
+	private WebElementFacade pickdate;
+	public void pickStartDate()
+	{
+		pickdate.click();
+		
+	}
+	
+	
 }
