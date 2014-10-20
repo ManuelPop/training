@@ -13,11 +13,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-
 import com.requirements.Application;
 import com.steps.EndUserSteps;
 import com.steps.Loginsteps;
-
+import Constants.Constants;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
 public class LoginTests {
@@ -35,7 +34,7 @@ public class LoginTests {
     @Test
     public void test(){
     	
-    	loginstep.login(Constants.DMuser,Constants.DMpassword);
+    	loginstep.login(Constants.PMuser, Constants.PMpassword);
     }
     
     
