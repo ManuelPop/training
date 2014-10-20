@@ -22,4 +22,13 @@ public class NewRequestPage extends PageObject {
 		
 	}
 	
+	@FindBy(css = "td[class='dp_selected dp_current']")
+	private WebElementFacade pickdate;
+	public void pickStartDate()
+	{
+		pickdate.click();
+		
+	}
+	
+	
 }

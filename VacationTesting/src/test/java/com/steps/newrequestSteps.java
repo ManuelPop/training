@@ -24,4 +24,13 @@ public class newrequestSteps extends ScenarioSteps {
 		startdate.clickOnStartDate();	
 		
 	}
+	
+	NewRequestPage pickdate;
+	
+	@Step
+	public void pickStartDate() {
+		pickdate.pickStartDate();
+	}
+	
+	
 }

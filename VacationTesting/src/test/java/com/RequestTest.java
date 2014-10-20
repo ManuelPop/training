@@ -43,6 +43,7 @@ public class RequestTest {
 		loginstep.clickVacation();
 		newrequest.clickOnNewRequest();
 		newrequest.clickOnStartDate();
+		newrequest.pickStartDate();
 
 	}
 
