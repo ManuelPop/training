@@ -8,6 +8,6 @@ public class Constants {
 	public static final String PMpassword = "parolanoua";
 	public static final String User = "manuel1";
 	public static final String UserPassword = "manuel1";
-	public static final String Text = "Your request completed successfully.";
+	public static final String SuccessfullyMessage = "Your request completed successfully.";
 	
 }

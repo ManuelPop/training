@@ -42,7 +42,7 @@ public class InboxTest {
     	inboxstep.clickInbox();
     	inboxstep.clickFirstRequest();
     	inboxstep.clickApproveButton();
-    	inboxstep.verifyText(Constants.Text);
+    	inboxstep.verifySuccessfulyMessage(Constants.SuccessfullyMessage);
     	
     }
     

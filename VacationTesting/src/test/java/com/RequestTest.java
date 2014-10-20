@@ -37,7 +37,7 @@ public class RequestTest {
 	public void test() {
 
 		loginstep.login(Constants.PMuser, Constants.PMpassword);
-		loginstep.clickOnTheVacationMenuItem();
+		loginstep.clickVacation();
 		newrequest.clickOnNewRequest();
 
 	}
