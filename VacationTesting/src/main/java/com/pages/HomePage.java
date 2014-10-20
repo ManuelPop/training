@@ -7,13 +7,13 @@ import net.thucydides.core.pages.WebElementFacade;
 
 @DefaultUrl("http://192.168.1.68:9090/home")
 	
-public class AfterloginPage extends PageObject {
+public class HomePage extends PageObject {
 
-	    @FindBy(linkText="http://192.168.1.68:9090/vacation")
-	    private WebElementFacade link;
+	    @FindBy(css= ".main-menu li:nth-child(9) a")
+	    private WebElementFacade vacationmenuitem;
 	  
-	    public void Clickonthelink() {
-	    	link.click();
+	    public void clickOnTheVacationMenuItem() {
+	    	vacationmenuitem.click();
 	    }
     
 }
