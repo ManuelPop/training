@@ -45,5 +45,14 @@ public class VacationMenuPage extends PageObject {
 	    	   Assert.assertTrue("Message was not found",
 	    	     message.getText().toLowerCase().contains(txt.toLowerCase()));
 	    }
+	    
+	    @FindBy(css="input[value='Reject']")
+	    private WebElementFacade rejectButton;
+	    
+	    public void rejectButton(){
+	    	rejectButton.click();
+	    	
+	    }
+	    
     
 }
