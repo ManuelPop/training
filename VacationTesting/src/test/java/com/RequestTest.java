@@ -44,6 +44,7 @@ public class RequestTest {
 		newrequest.clickOnNewRequest();
 		newrequest.clickOnStartDate();
 		newrequest.pickStartDate();
+		newrequest.clickOnEndDate();
 
 	}
 

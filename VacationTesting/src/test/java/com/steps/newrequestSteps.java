@@ -30,6 +30,15 @@ public class newrequestSteps extends ScenarioSteps {
 	@Step
 	public void pickStartDate() {
 		pickdate.pickStartDate();
+		
+	}
+	
+	NewRequestPage enddate;
+	
+	@Step
+	public void clickOnEndDate() {
+		enddate.clickOnEndDate();
+		
 	}
 	
 	
