@@ -18,7 +18,7 @@ import com.steps.InboxSteps;
 import com.steps.Loginsteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class InboxTest {
+public class InboxApproveButtonTest {
 
 
     @Managed(uniqueSession = true)
