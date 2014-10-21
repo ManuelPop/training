@@ -19,6 +19,9 @@ public class MyFreeDaysPage extends PageObject {
 	    @FindBy(css=".aui-w25 > div:nth-child(1) li:nth-child(4) a")
 	    private WebElementFacade myFreeDaysItem;
 	    
+	    @FindBy(css="#_evovacation_WAR_EvoVacationportlet_TabsBack")
+	    private WebElementFacade backButton;
+	    
 	    
 	    public void clickOnTheVacationMenuItem() {
 	    	vacationmenuitem.click();
@@ -26,6 +29,10 @@ public class MyFreeDaysPage extends PageObject {
 	    
 	    public void clickOnMyFreeDaysMenuItem(){
 	    	myFreeDaysItem.click();
+	    }
+	    
+	    public void clickOnBackButton(){
+	    	backButton.click();
 	    }
 	    
 }

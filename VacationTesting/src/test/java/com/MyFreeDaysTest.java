@@ -18,7 +18,7 @@ import com.steps.Loginsteps;
 import com.steps.MyFreeDaysSteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class MyFreeDaysTests {
+public class MyFreeDaysTest {
 
 
     @Managed(uniqueSession = true)
@@ -38,8 +38,7 @@ public class MyFreeDaysTests {
     	myFreeDayStep.login(Constants.PMuser, Constants.PMpassword);
     	myFreeDayStep.clickVacation();
     	myFreeDayStep.clickMyFreeDays();
-    	//myFreeDayStep.verifyMyFreeDaysTitle("My Free Days");
-    	myFreeDayStep.findBackButton("Back");
+    	myFreeDayStep.verifyMyFreeDaysTitle("My Free Days");
     }
     
     

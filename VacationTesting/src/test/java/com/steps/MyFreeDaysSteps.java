@@ -47,8 +47,7 @@ public class MyFreeDaysSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	 public void clickVacation(){
-		 
+	 public void clickVacation(){		 
 		 getDriver().get("http://192.168.1.68:9090/home");
 		 homepage.clickOnTheVacationMenuItem();
 	 }
@@ -66,10 +65,20 @@ public class MyFreeDaysSteps extends ScenarioSteps {
     }
 	
 	@Step
+    public void verifyTitle(String titlu){
+        WebElement message = getDriver().findElement(By.cssSelector("div[class='content-title']"));
+        Assert.assertFalse(message.getText().toLowerCase().contains(titlu.toLowerCase()));
+    }
+	
+	@Step
 	public void findBackButton(String backText){
 		WebElement text= getDriver().findElement(By.cssSelector("#_evovacation_WAR_EvoVacationportlet_TabsBack"));
 		Assert.assertTrue(text.getText().contains(backText));
 	}
 	
+	@Step
+	public void clickBackButton(){
+		myfreedays.clickOnBackButton();
+	}
 	
 }
