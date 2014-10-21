@@ -165,6 +165,14 @@ public class NewRequestPage extends PageObject
 	}
 	
 	
+	@FindBy(css= "input[id='_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest']" )
+	private WebElementFacade withdraw;
+	public void clickWithDraw()
+	{
+		withdraw.click();
+		
+	}
+	
 
 	public void setDate(int month, int day, int year) throws ParseException {
 

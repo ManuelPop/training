@@ -60,15 +60,17 @@ public class RequestTest {
 		loginstep.login(Constants.PMuser, Constants.PMpassword);
 		loginstep.clickVacation();
 		newrequest.clickOnNewRequest();	
-		newrequest.selectStartDate(11, 26, 2014);
-	    newrequest.selectEndDate(11, 26, 2014);
+		newrequest.selectStartDate(11, 2, 2014);
+	    newrequest.selectEndDate(11, 2, 2014);
 		newrequest.chooseSpV();
 		newrequest.chooseOther();
 		newrequest.addComment();
 		newrequest.addContent("anything..");
 		newrequest.clickOnSave();
 		//newrequest.clickOnCancel();
+		newrequest.verifyIfFailed("Your request failed to complete.");
 		newrequest.logOut();
+		
 	}
 	
 	//Special-Marriage
@@ -78,14 +80,16 @@ public class RequestTest {
 			loginstep.login(Constants.PMuser, Constants.PMpassword);
 			loginstep.clickVacation();
 			newrequest.clickOnNewRequest();	
-			newrequest.selectStartDate(11, 26, 2014);
-		    newrequest.selectEndDate(11, 26, 2014);
+			newrequest.selectStartDate(11, 7, 2014);
+		    newrequest.selectEndDate(11, 7, 2014);
 			newrequest.chooseSpV();
 			newrequest.chooseMarriage();
 			newrequest.addComment();
 			newrequest.addContent("anything..");
 			newrequest.clickOnSave();
 			//newrequest.clickOnCancel();
+			newrequest.verifyIfSucceed("Your request completed successfully.");
+			newrequest.clickWithDraw();
 			newrequest.logOut();
 		}
 		
@@ -97,8 +101,8 @@ public class RequestTest {
 			loginstep.login(Constants.PMuser, Constants.PMpassword);
 			loginstep.clickVacation();
 			newrequest.clickOnNewRequest();	
-			newrequest.selectStartDate(11, 26, 2014);
-		    newrequest.selectEndDate(11, 26, 2014);
+			newrequest.selectStartDate(10, 28, 2014);
+		    newrequest.selectEndDate(10, 28, 2014);
 			newrequest.chooseSpV();
 			newrequest.chooseChild();
 			newrequest.addComment();
@@ -116,8 +120,8 @@ public class RequestTest {
 			loginstep.login(Constants.PMuser, Constants.PMpassword);
 			loginstep.clickVacation();
 			newrequest.clickOnNewRequest();	
-			newrequest.selectStartDate(11, 26, 2014);
-		    newrequest.selectEndDate(11, 26, 2014);
+			newrequest.selectStartDate(11, 13, 2014);
+		    newrequest.selectEndDate(11, 13, 2014);
 			newrequest.chooseSpV();
 			newrequest.chooseFuneral();
 			newrequest.addComment();
@@ -136,8 +140,8 @@ public class RequestTest {
 		loginstep.login(Constants.PMuser, Constants.PMpassword);
 		loginstep.clickVacation();
 		newrequest.clickOnNewRequest();	
-		newrequest.selectStartDate(11, 27, 2014);
-	    newrequest.selectEndDate(11, 27, 2014);
+		newrequest.selectStartDate(11, 15, 2014);
+	    newrequest.selectEndDate(11, 17, 2014);
 		newrequest.chooseHoliday();
 		newrequest.addComment();
 		newrequest.addContent("anything..");
@@ -154,8 +158,8 @@ public class RequestTest {
 		loginstep.login(Constants.PMuser, Constants.PMpassword);
 		loginstep.clickVacation();
 		newrequest.clickOnNewRequest();	
-		newrequest.selectStartDate(11, 28, 2014);
-	    newrequest.selectEndDate(11, 28, 2014);
+		newrequest.selectStartDate(11, 11, 2014);
+	    newrequest.selectEndDate(11, 11, 2014);
 		newrequest.chooseUnpaid();
 		newrequest.addComment();
 		newrequest.addContent("anything..");
@@ -172,8 +176,8 @@ public class RequestTest {
 		loginstep.login(Constants.PMuser, Constants.PMpassword);
 		loginstep.clickVacation();
 		newrequest.clickOnNewRequest();	
-		newrequest.selectStartDate(11, 28, 2014);
-	    newrequest.selectEndDate(11, 28, 2014);
+		newrequest.selectStartDate(11, 29, 2014);
+	    newrequest.selectEndDate(11, 28, 2016);
 		newrequest.chooseSick();
 		newrequest.addComment();
 		newrequest.addContent("anything..");

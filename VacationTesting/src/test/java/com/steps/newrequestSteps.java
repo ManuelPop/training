@@ -1,7 +1,12 @@
 package com.steps;
 
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.steps.ScenarioSteps;
+
 import com.google.protobuf.TextFormat.ParseException;
 import com.pages.NewRequestPage;
 
@@ -152,7 +157,29 @@ public class newrequestSteps extends ScenarioSteps {
 		logout.logOut();
 		
 	}
-
+	
+	
+	
+	@Step
+    public void verifyIfFailed(String message){
+        WebElement alert = getDriver().findElement(By.cssSelector("div[class='portlet-msg-error']"));
+        Assert.assertTrue(alert.getText().toLowerCase().contains(message.toLowerCase()));
+	}
+	
+	
+	@Step
+    public void verifyIfSucceed(String message){
+        WebElement alert = getDriver().findElement(By.cssSelector("div[class='portlet-msg-success']"));
+        Assert.assertTrue(alert.getText().toLowerCase().contains(message.toLowerCase()));
+	}
+	
+	
+	NewRequestPage withdraw;
+	
+	@Step
+	public void clickWithDraw(){
+		withdraw.clickWithDraw();
+	}
 	
 	
 }
