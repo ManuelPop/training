@@ -1,8 +1,5 @@
 package com.pages;
 
-import junit.framework.Assert;
-
-import org.openqa.selenium.WebElement;
 
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.By;
@@ -21,7 +18,8 @@ public class MyFreeDaysPage extends PageObject {
 	    
 	    @FindBy(css=".aui-w25 > div:nth-child(1) li:nth-child(4) a")
 	    private WebElementFacade myFreeDaysItem;
-	  
+	    
+	    
 	    public void clickOnTheVacationMenuItem() {
 	    	vacationmenuitem.click();
 	    }

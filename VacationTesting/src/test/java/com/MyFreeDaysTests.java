@@ -38,7 +38,8 @@ public class MyFreeDaysTests {
     	myFreeDayStep.login(Constants.PMuser, Constants.PMpassword);
     	myFreeDayStep.clickVacation();
     	myFreeDayStep.clickMyFreeDays();
-    	myFreeDayStep.verifyMyFreeDaysTitle("My Free Days");
+    	//myFreeDayStep.verifyMyFreeDaysTitle("My Free Days");
+    	myFreeDayStep.findBackButton("Back");
     }
     
     

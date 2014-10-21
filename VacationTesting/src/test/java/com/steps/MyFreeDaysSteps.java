@@ -65,5 +65,11 @@ public class MyFreeDaysSteps extends ScenarioSteps {
         Assert.assertTrue(message.getText().toLowerCase().contains(titlu.toLowerCase()));
     }
 	
+	@Step
+	public void findBackButton(String backText){
+		WebElement text= getDriver().findElement(By.cssSelector("#_evovacation_WAR_EvoVacationportlet_TabsBack"));
+		Assert.assertTrue(text.getText().contains(backText));
+	}
+	
 	
 }
