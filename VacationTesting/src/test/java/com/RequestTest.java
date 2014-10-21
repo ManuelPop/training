@@ -25,7 +25,7 @@ import com.steps.newrequestSteps;
 public class RequestTest {
 	
 	
-	String keyword;
+	/*String keyword;
 	
 	@Qualifier
 	public String getContent() {
@@ -35,7 +35,7 @@ public class RequestTest {
 	public void setContent(String keyword) {
 		this.keyword = keyword;
 	}
-
+*/
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
