@@ -14,7 +14,7 @@ public class NewRequestPage extends PageObject {
 	}
 	
 	
-	@FindBy(css = "button[class='Zebra_DatePicker_Icon']")	
+	@FindBy(css = "input[name='startDate']")	
 	private WebElementFacade startdate;
 	public void clickOnStartDate()
 	{
@@ -29,6 +29,15 @@ public class NewRequestPage extends PageObject {
 		pickdate.click();
 		
 	}
+	
+	@FindBy(css = "input[name='endDate']")
+	private WebElementFacade enddate;
+	public void clickOnEndDate()
+	{
+		enddate.click();
+		
+	}
+	
 	
 	
 }

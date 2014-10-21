@@ -71,9 +71,15 @@ public class InboxSteps extends ScenarioSteps {
 	@Step
 	public void verifySuccessfulyMessage(String txt){
 		inbox.verifyText(txt);		
+			
+	}
 	
+	@Step
+	public void clickRejectButton(){
+		inbox.ApproveButton();
 		
 	}
+	
 		
 		
 }
