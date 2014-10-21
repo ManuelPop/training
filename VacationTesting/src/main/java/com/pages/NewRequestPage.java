@@ -67,9 +67,59 @@ public class NewRequestPage extends PageObject
 		specialvacation.click();
 	}
 	
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CO']")
+	private WebElementFacade holiday;
+	public void chooseHoliday()
+	{
+		holiday.click();
+		
+	}
+	
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CF']")
+	private WebElementFacade unpaid;
+	public void chooseUnpaid()
+	{
+		unpaid.click();
+		
+	}
+	
+	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CM']")
+	private WebElementFacade sick;
+	public void chooseSick()
+	{
+		sick.click();
+		
+	}
+	
+	
+	
 	@FindBy(css ="option[value='OTHER']")
 	private WebElementFacade othervacation;
 	public void chooseOther()
+	{
+		othervacation.click();
+		
+	}
+	
+	@FindBy(css ="option[value='MARRIAGE']")
+	private WebElementFacade marriagevacation;
+	public void chooseMarriage()
+	{
+		marriagevacation.click();
+		
+	}
+	
+	@FindBy(css ="option[value='CHILD_BIRTH']")
+	private WebElementFacade childvacation;
+	public void chooseChild()
+	{
+		othervacation.click();
+		
+	}
+	
+	@FindBy(css ="option[value='FUNERAL']")
+	private WebElementFacade funeralvacation;
+	public void chooseFuneral()
 	{
 		othervacation.click();
 		
@@ -85,12 +135,36 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css = "textarea[id='_evovacation_WAR_EvoVacationportlet_commentContent']")
 	private WebElementFacade content;
-	public void addContent()
+	public void addContent(String text)
 	{
-		content.click();
+		content.type(text);
+		
 	}
 	
-
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_saveButton")
+	private WebElementFacade save;
+	public void clickOnSave()
+	{ 
+		save.click();
+	
+	}
+	
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_cancelButton")
+	private WebElementFacade cancel;
+	public void clickOnCancel()
+	{ 
+		cancel.click();
+	
+	}
+	
+	@FindBy(css = "a[href='/c/portal/logout']")
+	private WebElementFacade logout;
+	public void logOut()
+	{
+		logout.click();
+	}
+	
+	
 
 	public void setDate(int month, int day, int year) throws ParseException {
 
@@ -105,7 +179,7 @@ public class NewRequestPage extends PageObject
 		}
 
 		Calendar cal = Calendar.getInstance();
-		
+
 		do {
 			element(calendarTitle).waitUntilVisible();
 			String MandY = calendarTitle.getText();
@@ -123,18 +197,18 @@ public class NewRequestPage extends PageObject
 			{
 				nextButton.click();
 			}
-			
+
 			if (cal.compareTo(calNew) == 1) 
 			{
 				previousButton.click();
 			}
 
-		    } 
-		
+		} 
+
 		while (cal.compareTo(calNew) != 0);
 
 		List <WebElement> days = getDriver().findElements(By.cssSelector("div[style*='block'] td"));
-		
+
 		for (WebElement currentDay : days) {
 			if (currentDay.getText().toLowerCase()
 					.contains(String.valueOf(day).toLowerCase()))
@@ -142,8 +216,13 @@ public class NewRequestPage extends PageObject
 		}
 
 	}
-	}
 	
+	
+	
+}
+
+
+
 
 		 
 	
