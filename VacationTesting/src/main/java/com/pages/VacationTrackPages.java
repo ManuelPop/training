@@ -4,14 +4,15 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
-import org.openqa.selenium.WebElement;
-
-import com.google.protobuf.TextFormat.ParseException;
-
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
+import com.google.protobuf.TextFormat.ParseException;
 
 public class VacationTrackPages extends PageObject {
 
@@ -37,6 +38,7 @@ public class VacationTrackPages extends PageObject {
 		enddate.click();
 		
 	}
+	
 	
 	 @FindBy(css = "div[style*='block'] td.dp_caption")
 	 private WebElementFacade calendarTitle;
@@ -107,4 +109,70 @@ public class VacationTrackPages extends PageObject {
 		 apply.click();
 	 }
 	 
+	 
+	 
+	 @FindBy(css="#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage")
+		private WebElement itemsPerPageDdl;
+	 public void items(String value) {
+		 element(itemsPerPageDdl).selectByVisibleText(value);//selectByVisibleText() works only on select dropdownlists   		 
+																													//		 	List<WebElement> items = getDriver().findElements(By.cssSelector("#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage option"));
+																													//		boolean found=false;
+																													//		 	for ( WebElement option:items ){
+																													//		 		if(option.getText().equals(value))
+																													//		 		{if(!option.isSelected()){
+																													//		 			option.click();
+																													//		 			found=true;
+																													//		 			break;
+																													//		 		}
+																													//		 		}
+																													//		 		if(found)
+																													//		 			break;
+																													//		 	}
+																													//		 	Assert.assertTrue("The value was not found!", found);
+																															 	}
+	 
+		 
+
+	
+	public void selectAnItemFromADropDownList(String dropDownListName,String value){
+		  waitABit(2000);
+		  boolean ddlFound = false;
+		  List<WebElement> ddlLists=getDriver().findElements(By.cssSelector("dl div"));
+		  for(WebElement ddlList:ddlLists){
+		  if(ddlList.getText().toLowerCase().equals(dropDownListName.toLowerCase())){
+		   ddlFound=true;
+		   ddlList.click();
+		   break;
+		  }
+		  if(ddlFound)
+		   break;
+		  }
+		  Assert.assertTrue("Dropdownlist was not found!",ddlFound);
+
+		  
+		  
+		  boolean found=false;
+		  
+		  List<WebElement> elements=getDriver().findElements(By.cssSelector(".mutliSelect ul li label"));
+		  for(WebElement element:elements){
+		   System.out.println(element.getText());
+		   if(element.getText().toLowerCase().equals(value.toLowerCase())){
+		    if(!element.isSelected())
+		    element.click();
+		    found=true;
+		    break;
+		   }
+		   else{
+		    if(element.isSelected())
+		     element.click();
+		   }
+		  }
+		  Assert.assertTrue("Element was not found!",found);
+		 }
+	 
+	 
+	 
 }
+	 	
+	 
+

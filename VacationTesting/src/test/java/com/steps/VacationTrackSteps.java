@@ -62,6 +62,23 @@ public class VacationTrackSteps extends ScenarioSteps {
 	}
 	
 	
+
+	VacationTrackPages items;
+	@Step
+	public void item(String string){
+		items.items(string);
+	}
+	
+	VacationTrackPages ddlLists;
+	@Step
+	public void ddlLists(String dropDownListName,String value)
+	{
+		ddlLists.selectAnItemFromADropDownList(dropDownListName, value);
+		
+	}
+	
+	
+	
 	
 	
 }
