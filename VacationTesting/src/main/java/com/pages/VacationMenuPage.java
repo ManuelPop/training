@@ -105,24 +105,28 @@ public class VacationMenuPage extends PageObject {
 	@FindBy(css = "span[class='aui-paginator-current-page-report aui-paginator-total']")
 	private WebElement pagesContainer;
 
-	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorTop > div.search-pages > div.page-links > a.aui-paginator-link.aui-paginator-next-link")
-	private WebElement nextButton;
+	//@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorTop > div.search-pages > div.page-links > a.aui-paginator-link.aui-paginator-next-link")
+	//private WebElement nextButton;
 
 	public void verifyDaysNumberResults(int lowerValue, int higherValue) {
 
 		List<Integer> numberOfPagesList = StringUtils
 				.getAllIntegerNumbersFromString(pagesContainer.getText());
-		int pagesNumber = numberOfPagesList.get(1);
-		System.out.println("Pages number: " + pagesNumber);
+		int noOfPages = numberOfPagesList.get(1);
+		System.out.println("Pages number: " + noOfPages);
 		waitABit(2000);
 
-		for (int i = 0; i < pagesNumber; i++) {
+		for (int i = 0; i < noOfPages; i++) {
+			waitABit(2000);
 			List<WebElement> items = getDriver()
 					.findElements(
 							By.cssSelector("table[class='taglib-search-iterator'] tr td:nth-child(7)"));
+			waitABit(2000);
 			System.out.println("Items size: " + items.size());
-			// items.remove(0);
+			items.remove(0);
+			System.out.println("Items size: " + items.size());
 			for (WebElement item : items) {
+				System.out.println(item.getText());
 				$(item).waitUntilVisible();
 				Assert.assertTrue(
 						"hopahopa",
@@ -131,7 +135,8 @@ public class VacationMenuPage extends PageObject {
 
 			}
 
-			if (i < pagesNumber - 1) {
+			if (i < noOfPages - 1) {
+				WebElement nextButton= getDriver().findElement(By.cssSelector("#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorTop > div.search-pages > div.page-links > a.aui-paginator-link.aui-paginator-next-link"));
 				nextButton.click();
 
 			}
@@ -139,9 +144,7 @@ public class VacationMenuPage extends PageObject {
 
 	}
 
-	// @FindBy(css =
-	// "div[class='aui-column-content aui-column-content-first column-three-content '] div[class='column-content'] span")
-	// private List<WebElement> vacationType1;
+
 
 	public void selectVacationType(String vacationType) {
 		boolean found = false;
@@ -172,15 +175,15 @@ public class VacationMenuPage extends PageObject {
 		boolean found = false;
 		List<WebElement> elements = getDriver()
 				.findElements(
-						By.cssSelector("div[class='aui-column-content   column-three-content column-center-content '] div[class='column-content'] span[class='aui-field aui-field-choice'] label"));
+						By.cssSelector("div[class='aui-column-content column-three-content column-center-content '] div[class='column-content'] span[class='aui-field aui-field-choice']"));
 		for (WebElement element : elements) {
 			System.out.println(element.getText());
 
 			if (element.getText().toLowerCase()
-					.equals(daysNumber.toLowerCase())) {
+					.contains(daysNumber.toLowerCase())) {
 				found = true;
-				if (!element.isSelected())
-					element.click();
+				if (!element.findElement(By.cssSelector(" label")).isSelected())
+					element.findElement(By.cssSelector(" label")).click();
 				break;
 			}
 
@@ -188,7 +191,7 @@ public class VacationMenuPage extends PageObject {
 		Assert.assertTrue("Days number was not found!", found);
 	}
 
-	@FindBy(css = "div[class='aui-column-content  aui-column-content-last column-three-content column-center-content '] div[class='column-content'] span[class='aui-field-content'] label")
+	@FindBy(css = "div[class='aui-column-content aui-column-content-last column-three-content column-center-content '] div[class='column-content'] span[class='aui-field-content']")
 	private List<WebElement> vacationStatus1;
 
 	public void selectVacationStatus(String vacationStatus) {
@@ -198,10 +201,10 @@ public class VacationMenuPage extends PageObject {
 		for (WebElement element : elements) {
 			System.out.println(element.getText());
 			if (element.getText().toLowerCase()
-					.equals(vacationStatus.toLowerCase())) {
+					.contains(vacationStatus.toLowerCase())) {
 				found = true;
-				if (!element.isSelected())
-					element.click();
+				if (!element.findElement(By.cssSelector(" label")).isSelected())
+					element.findElement(By.cssSelector(" label")).click();
 				break;
 			}
 
