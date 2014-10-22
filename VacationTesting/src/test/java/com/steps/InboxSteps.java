@@ -120,6 +120,18 @@ public class InboxSteps extends ScenarioSteps {
 	}
 	
 	@Step
+	public void verifyVacationTypeResult(String vacationType){
+		viewVacation.verifyVacationTypeResult(vacationType);
+		
+	}
+	
+	@Step
+	public void verifyVacationStatus(String vacationStatus){
+		viewVacation.verifyVacationStatus(vacationStatus);
+		
+	}
+	
+	@Step
 	public void selectVacationType(String vacationType){
 		viewVacation.selectVacationType(vacationType);
 		
@@ -134,6 +146,12 @@ public class InboxSteps extends ScenarioSteps {
 	@Step
 	public void selectVacationStatus(String vacationStatus){
 		viewVacation.selectVacationStatus(vacationStatus);
+		
+	}
+	
+	@Step
+	public void goToFirstPageButton(){
+		viewVacation.goToFirstPageButton();
 		
 	}
 	
