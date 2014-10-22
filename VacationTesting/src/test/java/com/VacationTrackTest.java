@@ -47,11 +47,14 @@ public class VacationTrackTest {
 		loginstep.login(Constants.PMuser, Constants.PMpassword);
 		loginstep.clickVacation();
 		vacationtracker.clickOnTracker();
-		vacationtracker.selectStartDate(10, 1, 2014);
+/*		vacationtracker.selectStartDate(10, 1, 2014);
 		vacationtracker.selectEndDate(11, 3, 2014);
+*/	//	vacationtracker.item("50");
+		vacationtracker.ddlLists("Buildings","Alpha Building");
+		vacationtracker.ddlLists("Type","Sick Leave");
+		vacationtracker.ddlLists("DEPARTMENTS","QA Department");
+		vacationtracker.ddlLists("status","pending");
 		vacationtracker.clickOnApply();
-		
-		
 	}
 	}
 	
