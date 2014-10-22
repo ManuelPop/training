@@ -16,17 +16,16 @@ import org.openqa.selenium.WebDriver;
 import Constants.Constants;
 
 import com.requirements.Application;
+import com.steps.FreeDaysHistoryFilterSteps;
 import com.steps.FreeDaysHistorySteps;
 import com.steps.MyFreeDaysSteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 @UseTestDataFrom("/resources/history.csv")
+//@RunWith(ThucydidesRunner.class)
 public class FreeDaysHistoryFilterTest {
 	
 	String type, days_number, operation;
-	
-	
-
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -36,8 +35,12 @@ public class FreeDaysHistoryFilterTest {
 
     @Steps
     //public Loginsteps loginstep;
-    public FreeDaysHistorySteps freeDayHistoryStep;
-    public MyFreeDaysSteps myFreeDayStep;
+    FreeDaysHistorySteps freeDayHistoryStep;
+    @Steps
+    MyFreeDaysSteps myFreeDayStep;
+    
+    @Steps
+    FreeDaysHistoryFilterSteps filterStep;
 
     
     @Test
@@ -46,9 +49,12 @@ public class FreeDaysHistoryFilterTest {
     	freeDayHistoryStep.login(Constants.PMuser, Constants.PMpassword);
     	freeDayHistoryStep.clickVacation();
     	freeDayHistoryStep.clickOnFreeDaysHistory();
-    	freeDayHistoryStep.clickAddedDays();;
+    	filterStep.selectType(type);
+    	filterStep.selectDaysNumber(days_number);
+    	filterStep.selectOperation(operation);
+    	//freeDayHistoryStep.clickAddedDays();
     	freeDayHistoryStep.clickApply();
-    	freeDayHistoryStep.checkVacationOperationDoesNotContain("Removed");
+    	//freeDayHistoryStep.checkVacationOperationDoesNotContain("Removed");
     }
     
     

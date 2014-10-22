@@ -15,6 +15,10 @@ import com.pages.Loginpage;
 
 public class FreeDaysHistorySteps extends ScenarioSteps {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	FreeDaysHistoryPage freeDaysHistory;
 	Loginpage loginpage;
 	
