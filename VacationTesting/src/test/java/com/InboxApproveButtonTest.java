@@ -42,7 +42,7 @@ public class InboxApproveButtonTest {
     	inboxstep.clickInbox();
     	inboxstep.clickFirstRequest();
     	inboxstep.clickApproveButton();
-    	inboxstep.verifySuccessfulyMessage(Constants.SuccessfullyMessage);
+    	inboxstep.verifySuccessfullyMessage(Constants.SuccessfullyMessage);
     	
     }
     

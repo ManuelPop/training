@@ -17,7 +17,7 @@ import com.requirements.Application;
 import com.steps.MyFreeDaysSteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class MyFreeDaysTest {
+public class MyFreeDaysTests {
 
 
     @Managed(uniqueSession = true)

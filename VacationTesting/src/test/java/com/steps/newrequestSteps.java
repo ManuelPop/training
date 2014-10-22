@@ -92,8 +92,7 @@ public class newrequestSteps extends ScenarioSteps {
 	
 	@Step
 	public void chooseHoliday() {
-		holiday.chooseHoliday();
-		
+		holiday.chooseHoliday();		
 	}
 	
 	

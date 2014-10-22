@@ -14,6 +14,7 @@ public class InboxSteps extends ScenarioSteps {
 	Loginpage loginpage;
 	HomePage homepage;
 	VacationMenuPage inbox;
+	VacationMenuPage viewVacation;
 	
 	
 	@Step
@@ -69,7 +70,7 @@ public class InboxSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void verifySuccessfulyMessage(String txt){
+	public void verifySuccessfullyMessage(String txt){
 		inbox.verifyText(txt);		
 			
 	}
@@ -79,6 +80,63 @@ public class InboxSteps extends ScenarioSteps {
 		inbox.ApproveButton();
 		
 	}
+	
+	@Step
+	public void clickViewVacation(){
+		
+		getDriver().get("http://192.168.1.68:9090/vacation");
+		viewVacation.clickViewVacationMenu();
+	}
+	
+//	@Step
+//	public void clickViewVacationHoliday(){
+//		
+//		getDriver().get("http://192.168.1.68:9090/vacation");
+//		viewVacation.clickViewVacationMenu();
+//	}
+//	
+//	@Step
+//	public void clickViewVacationFifthCheckBox(){
+//		
+//		viewVacation.clickViewVacationFifthCheckBox();
+//	}
+//	
+//	@Step
+//	public void clickViewVacationApprovedCheckBox(){
+//		
+//		viewVacation.clickViewVacationApprovedCheckBox();
+//	}
+	
+	@Step
+	public void clickViewVacationApplyButton(){
+		
+		viewVacation.clickViewVacationApplyButton();
+	}
+	
+	@Step
+	public void verifyDaysNumberResults(int lowerValue, int higherValue){
+		viewVacation.verifyDaysNumberResults(lowerValue,higherValue);
+		
+	}
+	
+	@Step
+	public void selectVacationType(String vacationType){
+		viewVacation.selectVacationType(vacationType);
+		
+	}
+	
+	@Step
+	public void selectDaysNumber(String daysNumber){
+		viewVacation.selectDaysNumber(daysNumber);
+		
+	}
+	
+	@Step
+	public void selectVacationStatus(String vacationStatus){
+		viewVacation.selectVacationStatus(vacationStatus);
+		
+	}
+	
 	
 		
 		

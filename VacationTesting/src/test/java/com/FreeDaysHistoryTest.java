@@ -14,10 +14,11 @@ import org.openqa.selenium.WebDriver;
 import Constants.Constants;
 
 import com.requirements.Application;
+import com.steps.FreeDaysHistorySteps;
 import com.steps.MyFreeDaysSteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class MyFreeDaysTest {
+public class FreeDaysHistoryTest {
 
 
     @Managed(uniqueSession = true)
@@ -28,16 +29,19 @@ public class MyFreeDaysTest {
 
     @Steps
     //public Loginsteps loginstep;
+    public FreeDaysHistorySteps freeDayHistoryStep;
     public MyFreeDaysSteps myFreeDayStep;
 
     
     @Test
     public void test(){
     	
-    	myFreeDayStep.login(Constants.PMuser, Constants.PMpassword);
-    	myFreeDayStep.clickVacation();
-    	myFreeDayStep.clickMyFreeDays();
-    	myFreeDayStep.verifyMyFreeDaysTitle("My Free Days");
+    	freeDayHistoryStep.login(Constants.PMuser, Constants.PMpassword);
+    	freeDayHistoryStep.clickVacation();
+    	freeDayHistoryStep.clickOnFreeDaysHistory();
+    	freeDayHistoryStep.clickAddedDays();;
+    	freeDayHistoryStep.clickApply();
+    	freeDayHistoryStep.checkVacationOperationDoesNotContain("Removed");
     }
     
     

@@ -2,12 +2,9 @@ package com.pages;
 
 
 import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
-
-import Constants.Constants;
 
 @DefaultUrl("http://192.168.1.68:9090/home")
 	
