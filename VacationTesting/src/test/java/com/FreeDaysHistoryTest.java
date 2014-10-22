@@ -41,7 +41,7 @@ public class FreeDaysHistoryTest {
     	freeDayHistoryStep.clickOnFreeDaysHistory();
     	freeDayHistoryStep.clickAddedDays();;
     	freeDayHistoryStep.clickApply();
-    	freeDayHistoryStep.checkVacationTypeDoesNotContain("Removed");
+    	freeDayHistoryStep.checkVacationOperationDoesNotContain("Removed");
     }
     
     

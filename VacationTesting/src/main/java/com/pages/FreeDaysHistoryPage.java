@@ -4,13 +4,12 @@ package com.pages;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openqa.selenium.WebElement;
-
-import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
+
+import org.openqa.selenium.WebElement;
 
 	
 public class FreeDaysHistoryPage extends PageObject {
@@ -50,12 +49,12 @@ public class FreeDaysHistoryPage extends PageObject {
 	    	applyButton.click();
 	    }
 	    
-	    public List<String> returnVacationTypeList(){
-	    	  List<WebElement> vacationTypeList = getDriver().findElements(By.cssSelector("td[class*='header.operation'] a"));
-	    	  List<String> vacationTypeStrList = new ArrayList<String>();
-	    	  for (WebElement i : vacationTypeList){
-	    	   vacationTypeStrList.add(i.getText());
+	    public List<String> returnVacationOperationList(){
+	    	  List<WebElement> vacationOperationList = getDriver().findElements(By.cssSelector("td[class*='header.operation']"));
+	    	  List<String> vacationOperationStrList = new ArrayList<String>();
+	    	  for (WebElement i : vacationOperationList){
+	    	   vacationOperationStrList.add(i.getText());
 	    	  }
-	    	  return vacationTypeStrList;
+	    	  return vacationOperationStrList;
 	    }
 }

@@ -4,18 +4,14 @@ import java.util.List;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
-import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 
 import Constants.Constants;
 
 import com.pages.FreeDaysHistoryPage;
-import com.pages.HomePage;
 import com.pages.Loginpage;
-import com.pages.MyFreeDaysPage;
 
 public class FreeDaysHistorySteps extends ScenarioSteps {
 
@@ -59,8 +55,8 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 	}
 	
 	@Step
-	 public void checkVacationTypeDoesNotContain(String vacationTypeNotWanted){
-	  List<String> vacationTypeList = freeDaysHistory.returnVacationTypeList();
-	  Assert.assertFalse("Vacation type contains element that should not be there after filter!!!", vacationTypeList.contains(vacationTypeNotWanted));
+	 public void checkVacationOperationDoesNotContain(String vacationOperationNotWanted){
+	  List<String> vacationOperationList = freeDaysHistory.returnVacationOperationList();
+	  Assert.assertFalse("Vacation type contains element that should not be there after filter!!!", vacationOperationList.contains(vacationOperationNotWanted));
 	 }
 }
