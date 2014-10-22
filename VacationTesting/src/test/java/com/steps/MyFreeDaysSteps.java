@@ -1,12 +1,13 @@
 package com.steps;
 
-import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
 import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.steps.ScenarioSteps;
+
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
+
 import Constants.Constants;
 
 import com.pages.HomePage;
@@ -48,15 +49,16 @@ public class MyFreeDaysSteps extends ScenarioSteps {
 	
 	@Step
 	 public void clickVacation(){		 
-		 getDriver().get("http://192.168.1.68:9090/home");
+		 //getDriver().get("http://192.168.1.68:9090/home");
 		 homepage.clickOnTheVacationMenuItem();
 	 }
 	
 	@Step
 	public void clickMyFreeDays(){
-		getDriver().get("http://192.168.1.68:9090/vacation");
+		//getDriver().get("http://192.168.1.68:9090/vacation");
 		myfreedays.clickOnMyFreeDaysMenuItem();
 	}
+	
 	
 	@Step
     public void verifyMyFreeDaysTitle(String titlu){
