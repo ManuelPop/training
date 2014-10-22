@@ -46,8 +46,8 @@ public class ViewVacationFilterTest {
     	//viewVacationStep.clickViewVacationHoliday();
     	//viewVacationStep.clickViewVacationFifthCheckBox();
     	//viewVacationStep.clickViewVacationApprovedCheckBox();
-    	//viewVacationStep.clickViewVacationApplyButton();
-    	//viewVacationStep.verifyResults();
+    	viewVacationStep.clickViewVacationApplyButton();
+    	viewVacationStep.verifyDaysNumberResults(1,5);
     	
     }
     

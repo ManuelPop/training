@@ -114,8 +114,8 @@ public class InboxSteps extends ScenarioSteps {
 	}
 	
 	@Step
-	public void verifyResults(String txt){
-		viewVacation.verifyText(txt);
+	public void verifyDaysNumberResults(int lowerValue, int higherValue){
+		viewVacation.verifyDaysNumberResults(lowerValue,higherValue);
 		
 	}
 	
