@@ -14,36 +14,30 @@ import org.openqa.selenium.WebDriver;
 import Constants.Constants;
 
 import com.requirements.Application;
-import com.steps.InboxSteps;
-import com.steps.Loginsteps;
+import com.steps.MyFreeDaysSteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class InboxRejectButtonTest {
+public class MyFreeDaysTests {
 
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://192.168.1.68:9090/home")
+    @ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
     public Pages pages;
 
     @Steps
-    public Loginsteps loginstep;
-    
-    @Steps
-    public InboxSteps inboxstep;
+    //public Loginsteps loginstep;
+    public MyFreeDaysSteps myFreeDayStep;
 
     
     @Test
     public void test(){
     	
-    	loginstep.login(Constants.DMuser, Constants.DMpassword);
-    	loginstep.clickVacation();
-    	inboxstep.clickInbox();
-    	inboxstep.clickFirstRequest();
-    	inboxstep.clickRejectButton();
-    	inboxstep.verifySuccessfullyMessage(Constants.SuccessfullyMessage);
-    	
+    	myFreeDayStep.login(Constants.PMuser, Constants.PMpassword);
+    	myFreeDayStep.clickVacation();
+    	myFreeDayStep.clickMyFreeDays();
+    	myFreeDayStep.verifyMyFreeDaysTitle("My Free Days");
     }
     
     
