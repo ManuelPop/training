@@ -18,7 +18,7 @@ import com.steps.InboxSteps;
 import com.steps.Loginsteps;
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class InboxRejectButtonTest {
+public class ViewVacationFilterTest {
 
 
     @Managed(uniqueSession = true)
@@ -31,7 +31,7 @@ public class InboxRejectButtonTest {
     public Loginsteps loginstep;
     
     @Steps
-    public InboxSteps inboxstep;
+    public InboxSteps viewVacationStep;
 
     
     @Test
@@ -39,12 +39,19 @@ public class InboxRejectButtonTest {
     	
     	loginstep.login(Constants.DMuser, Constants.DMpassword);
     	loginstep.clickVacation();
-    	inboxstep.clickInbox();
-    	inboxstep.clickFirstRequest();
-    	inboxstep.clickRejectButton();
-    	inboxstep.verifySuccessfullyMessage(Constants.SuccessfullyMessage);
+    	viewVacationStep.clickViewVacation();
+    	viewVacationStep.selectVacationType("holiday");
+    	viewVacationStep.selectDaysNumber("1 - 5");
+    	viewVacationStep.selectVacationStatus("Approved");
+    	//viewVacationStep.clickViewVacationHoliday();
+    	//viewVacationStep.clickViewVacationFifthCheckBox();
+    	//viewVacationStep.clickViewVacationApprovedCheckBox();
+    	//viewVacationStep.clickViewVacationApplyButton();
+    	//viewVacationStep.verifyResults();
     	
     }
+    
+    
     
     
 } 
