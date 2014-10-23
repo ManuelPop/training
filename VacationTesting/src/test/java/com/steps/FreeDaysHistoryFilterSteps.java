@@ -13,12 +13,8 @@ import Constants.Constants;
 import com.pages.FreeDaysHistoryPage;
 import com.pages.Loginpage;
 
-public class FreeDaysHistorySteps extends ScenarioSteps {
+public class FreeDaysHistoryFilterSteps extends ScenarioSteps {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	FreeDaysHistoryPage freeDaysHistory;
 	Loginpage loginpage;
 	
@@ -63,4 +59,19 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 	  List<String> vacationOperationList = freeDaysHistory.returnVacationOperationList();
 	  Assert.assertFalse("Vacation type contains element that should not be there after filter!!!", vacationOperationList.contains(vacationOperationNotWanted));
 	 }
+	
+	@Step
+	public void selectType(String value){
+		freeDaysHistory.selectType(value);
+	}
+	
+	@Step
+	public void selectDaysNumber(String value){
+		freeDaysHistory.selectDaysNumber(value);
+	}
+	
+	@Step
+	public void selectOperation(String value){
+		freeDaysHistory.selectOperation(value);
+	}
 }

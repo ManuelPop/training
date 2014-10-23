@@ -1,0 +1,91 @@
+type, days_number,	operation
+Vacation days,	1-5,	Added Days
+Anniversary,	1-5,	Removed Days
+ALL,	ALL,	Added Days
+Anniversary,	ALL,	ALL
+Extra Days,	51+,	Removed Days
+Anniversary,	6-10,	Removed Days
+Extra Days,	21-50,	Added Days
+Vacation days,	51+,	Removed Days
+Vacation Without Payment,	1-5,	Added Days
+Extra Days,	21-50,	Removed Days
+Vacation Without Payment,	6-10,	ALL
+Anniversary,	ALL,	Removed Days
+Anniversary,	51+,	Added Days
+Extra Days,	51+,	Added Days
+Vacation Without Payment,	11-20,	ALL
+Vacation Without Payment,	21-50,	ALL
+Vacation days,	11-20,	Removed Days
+Anniversary,	1-5,	ALL
+Vacation Without Payment,	21-50,	Added Days
+Vacation days,	1-5,	Removed Days
+Vacation days,	51+,	Added Days
+Anniversary,	11-20,	ALL
+ALL,	6-10,	Added Days
+Vacation Without Payment,	51+,	Added Days
+ALL,	51+,	Added Days
+Vacation Without Payment,	51+,	ALL
+Extra Days,	21-50,	ALL
+Extra Days,	11-20,	Added Days
+Extra Days,	11-20,	Removed Days
+Anniversary,	6-10,	ALL
+ALL,	6-10,	Removed Days
+ALL,	ALL,	ALL
+Extra Days,	6-10,	Added Days
+Vacation days,	1-5,	ALL
+Vacation days,	21-50,	Removed Days
+Extra Days,	6-10,	ALL
+Vacation days,	21-50,	ALL
+ALL,	1-5,	ALL
+Vacation days,	11-20,	Added Days
+Extra Days,	ALL,	ALL
+Vacation days,	ALL,	Removed Days
+Vacation Without Payment,	ALL,	Added Days
+Vacation Without Payment,	51+,	Removed Days
+ALL,	21-50,	Added Days
+ALL,	21-50,	Removed Days
+Anniversary,	1-5,	Added Days
+Anniversary,	11-20,	Added Days
+Vacation Without Payment,	6-10,	Added Days
+ALL,	1-5,	Added Days
+Anniversary,	21-50,	ALL
+Vacation Without Payment,	1-5,	Removed Days
+ALL,	51+,	Removed Days
+Vacation days,	6-10,	ALL
+Vacation days,	ALL,	ALL
+Anniversary,	6-10,	Added Days
+ALL,	11-20,	Removed Days
+ALL,	ALL,	Removed Days
+Extra Days,	1-5,	Added Days
+Anniversary,	11-20,	Removed Days
+Extra Days,	ALL,	Added Days
+ALL,	11-20,	ALL
+Vacation days,	6-10,	Added Days
+Extra Days,	1-5,	Removed Days
+Vacation Without Payment,	6-10,	Removed Days
+Extra Days,	6-10,	Removed Days
+Extra Days,	11-20,	ALL
+Extra Days,	1-5,	ALL
+Vacation days,	11-20,	ALL
+ALL,	11-20,	Added Days
+Extra Days,	ALL,	Removed Days
+Anniversary,	21-50,	Removed Days
+Anniversary,	ALL,	Added Days
+ALL,	21-50,	ALL
+Anniversary,	21-50,	Added Days
+Vacation days,	6-10,	Removed Days
+Vacation Without Payment,	11-20,	Removed Days
+ALL,	51+,	ALL
+ALL,	1-5,	Removed Days
+Anniversary,	51+,	Removed Days
+Vacation days,	21-50,	Added Days
+Anniversary,	51+,	ALL
+ALL,	6-10,	ALL
+Vacation days,	51+,	ALL
+Vacation Without Payment,	ALL,	Removed Days
+Vacation Without Payment,	21-50,	Removed Days
+Vacation Without Payment,	1-5,	ALL
+Vacation Without Payment,	ALL,	ALL
+Vacation Without Payment,	11-20,	Added Days
+Vacation days,	ALL,	Added Days
+Extra Days,	51+,	ALL

@@ -9,6 +9,7 @@ import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 	
@@ -57,4 +58,64 @@ public class FreeDaysHistoryPage extends PageObject {
 	    	  }
 	    	  return vacationOperationStrList;
 	    }
+	    
+	    public void selectType(String type) {
+			boolean found = false;
+			List<WebElement> elements = getDriver()
+					.findElements(
+							By.cssSelector("div[class='aui-column column-three aui-column-first '] div div[class='column-content'] label"));
+			for (WebElement element : elements) {
+				System.out.println(element.getText());
+
+				if (element.getText().replaceAll("\\s","").toLowerCase()
+						.equals(type.replaceAll("\\s","").toLowerCase())) {
+					found = true;
+					if (!element.isSelected())
+						element.click();
+					break;
+				}
+
+			}
+			Assert.assertTrue("Days number was not found!", found);
+		}
+	    
+	    public void selectDaysNumber(String daysNumber) {
+			boolean found = false;
+			List<WebElement> elements = getDriver()
+					.findElements(
+							By.cssSelector("div[class='aui-column column-three '] div div[class='column-content'] label"));
+			for (WebElement element : elements) {
+				System.out.println(element.getText());
+
+				if (element.getText().replaceAll("\\s","").toLowerCase()
+						.equals(daysNumber.replaceAll("\\s","").toLowerCase())) {
+					found = true;
+					if (!element.isSelected())
+						element.click();
+					break;
+				}
+
+			}
+			Assert.assertTrue("Days number was not found!", found);
+		}
+	    
+	    public void selectOperation(String operation) {
+			boolean found = false;
+			List<WebElement> elements = getDriver()
+					.findElements(
+							By.cssSelector("div[class='aui-column column-three aui-column-last'] div div[class='column-content'] label"));
+			for (WebElement element : elements) {
+				System.out.println(element.getText());
+
+				if (element.getText().replaceAll("\\s","").toLowerCase()
+						.equals(operation.replaceAll("\\s","").toLowerCase())) {
+					found = true;
+					if (!element.isSelected())
+						element.click();
+					break;
+				}
+
+			}
+			Assert.assertTrue("Days number was not found!", found);
+		}
 }
