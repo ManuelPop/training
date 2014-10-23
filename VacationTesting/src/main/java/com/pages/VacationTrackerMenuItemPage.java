@@ -1,8 +1,8 @@
 package com.pages;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 
 import net.thucydides.core.annotations.findby.By;
@@ -13,11 +13,9 @@ import net.thucydides.core.pages.WebElementFacade;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
-import Constants.StringUtils;
-
 import com.google.protobuf.TextFormat.ParseException;
 
-public class VacationTrackerMenuItem extends PageObject {
+public class VacationTrackerMenuItemPage extends PageObject {
 
 	@FindBy(css = "a[href*='vacation-tracker']")
 	private WebElementFacade vacationtracker;
@@ -173,9 +171,35 @@ public class VacationTrackerMenuItem extends PageObject {
 		}
 		Assert.assertTrue("Element was not found!", found);
 	}
+	
+	
 
+	public List<String> verifyStatusFilter() 
+	{
 
-			
+		{
+			 List<WebElement> vacationTypeList = getDriver().findElements(By.cssSelector("td[class*='header.status']"));
+			 List<String> vacationTypeStrList = new ArrayList<String>();
+		
+			 for (WebElement i:vacationTypeList)
+			 {
+				System.out.println(i.getText());
+			   vacationTypeStrList.add(i.getText());
+			   
+			  }
+			 
+			  return vacationTypeStrList;
+		}
+	}
+
 
 	
+	
+
+	
+
+	
+		
+		
 }
+
