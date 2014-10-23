@@ -13,13 +13,13 @@ import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
 
-public class NewRequestPage extends PageObject 
+public class NewVacationRequestMenuItem extends PageObject 
 {
 	
 
 	@FindBy(css = "a[href*='new-request']")
 	private WebElementFacade newrequest;
-	public void clickOnNewRequest() 
+	public void clickOnNewVacationRequest() 
 	{
 		newrequest.click();
 	}
@@ -27,7 +27,7 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css = "input[name='startDate']")	
 	private WebElementFacade startdate;
-	public void clickOnStartDate()
+	public void clickOnStartDateToSelectStartDate()
 	{
 		startdate.click();
 		
@@ -38,7 +38,7 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css = "input[name='endDate']")
 	private WebElementFacade enddate;
-	public void clickOnEndDate()
+	public void clickOnEndDateToSelectEndDate()
 	{
 		enddate.click();
 		
@@ -62,14 +62,14 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CS']")
 	private WebElementFacade specialvacation;
-	public void chooseSpV()
+	public void chooseSpecialVacationType()
 	{
 		specialvacation.click();
 	}
 	
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CO']")
 	private WebElementFacade holiday;
-	public void chooseHoliday()
+	public void chooseHolidayVacationType()
 	{
 		holiday.click();
 		
@@ -77,7 +77,7 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CF']")
 	private WebElementFacade unpaid;
-	public void chooseUnpaid()
+	public void chooseVacationWithoutPayment()
 	{
 		unpaid.click();
 		
@@ -85,7 +85,7 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_type_CM']")
 	private WebElementFacade sick;
-	public void chooseSick()
+	public void chooseSickVacationType()
 	{
 		sick.click();
 		
@@ -95,7 +95,7 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css ="option[value='OTHER']")
 	private WebElementFacade othervacation;
-	public void chooseOther()
+	public void chooseOtherSpecialVacationType()
 	{
 		othervacation.click();
 		
@@ -103,7 +103,7 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css ="option[value='MARRIAGE']")
 	private WebElementFacade marriagevacation;
-	public void chooseMarriage()
+	public void chooseMarriageVacationType()
 	{
 		marriagevacation.click();
 		
@@ -111,7 +111,7 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css ="option[value='CHILD_BIRTH']")
 	private WebElementFacade childvacation;
-	public void chooseChild()
+	public void chooseChildBirthVacationType()
 	{
 		othervacation.click();
 		
@@ -119,7 +119,7 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css ="option[value='FUNERAL']")
 	private WebElementFacade funeralvacation;
-	public void chooseFuneral()
+	public void chooseFuneralVacationType()
 	{
 		othervacation.click();
 		
@@ -135,7 +135,7 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css = "textarea[id='_evovacation_WAR_EvoVacationportlet_commentContent']")
 	private WebElementFacade content;
-	public void addContent(String text)
+	public void addContentToCommentBox(String text)
 	{
 		content.type(text);
 		
@@ -143,7 +143,7 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_saveButton")
 	private WebElementFacade save;
-	public void clickOnSave()
+	public void clickOnSaveButton()
 	{ 
 		save.click();
 	
@@ -167,14 +167,14 @@ public class NewRequestPage extends PageObject
 	
 	@FindBy(css= "input[id='_evovacation_WAR_EvoVacationportlet_withdrawnVacationRequest']" )
 	private WebElementFacade withdraw;
-	public void clickWithDraw()
+	public void clickOnWithdrawButton()
 	{
 		withdraw.click();
 		
 	}
 	
 
-	public void setDate(int month, int day, int year) throws ParseException {
+	public void settingDateByGivenParameter(int month, int day, int year) throws ParseException {
 
 		Calendar calNew = Calendar.getInstance();
 		SimpleDateFormat sdfNew = new SimpleDateFormat("dd/MM/yyyy");

@@ -105,11 +105,10 @@ public class VacationMenuPage extends PageObject {
 	@FindBy(css = "span[class='aui-paginator-current-page-report aui-paginator-total']")
 	private WebElement pagesContainer;
 
-	//@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorTop > div.search-pages > div.page-links > a.aui-paginator-link.aui-paginator-next-link")
-	//private WebElement nextButton;
 
-	public void verifyDaysNumberResults(int lowerValue, int higherValue) {
+	public void verifyDaysNumberResults(String daysNumber) {
 
+		
 		List<Integer> numberOfPagesList = StringUtils
 				.getAllIntegerNumbersFromString(pagesContainer.getText());
 		int noOfPages = numberOfPagesList.get(1);
@@ -128,10 +127,61 @@ public class VacationMenuPage extends PageObject {
 			for (WebElement item : items) {
 				System.out.println(item.getText());
 				$(item).waitUntilVisible();
+				String stringParts[] = daysNumber.trim().split("-");
+				String lowerValue = stringParts[0];
+				String higherValue = stringParts[1];
+				System.out.println(stringParts.length +"this is the trim string");
+//				System.out.println(higherValue.valueOf(stringParts));
+				
 				Assert.assertTrue(
 						"hopahopa",
-						Integer.parseInt(item.getText()) >= lowerValue
-								&& Integer.parseInt(item.getText()) <= higherValue);
+						Integer.parseInt(item.getText()) >= Integer.parseInt(lowerValue.trim()) 
+								&& Integer.parseInt(item.getText()) <= Integer.parseInt(higherValue.trim()));
+				System.out.println("after assert");
+
+			}
+
+			if (i < noOfPages - 1) {
+				WebElement nextButton= getDriver().findElement(By.cssSelector("#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom > div.search-pages > div.page-links > span.aui-paginator-link.aui-paginator-next-link"));
+				
+				nextButton.click();
+
+			}
+			 
+		}
+
+	}
+	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorTop > div.search-pages > div.page-links > div > span > a:nth-child(1)")
+	public WebElement goToFirstPage;
+	public void goToFirstPageButton(){
+	 goToFirstPage.click();
+	}
+	
+	public void verifyVacationTypeResult(String vacationType) {
+		waitABit(2000);
+		//WebElement goToFirstPage = getDriver().findElement(By.cssSelector("span[class='aui-paginator-link aui-paginator-first-link']"));
+		
+		List<Integer> numberOfPagesList = StringUtils
+				.getAllIntegerNumbersFromString(pagesContainer.getText());
+		int noOfPages = numberOfPagesList.get(1);
+		System.out.println("Pages number: " + noOfPages);
+		waitABit(2000);
+
+		for (int i = 0; i < noOfPages; i++) {
+			waitABit(2000);
+			List<WebElement> items = getDriver()
+					.findElements(
+							By.cssSelector("table[class='taglib-search-iterator'] tr td:nth-child(8)"));
+			waitABit(2000);
+			System.out.println("Items size: " + items.size());
+			items.remove(0);
+			System.out.println("Items size: " + items.size());
+			for (WebElement item : items) {
+				System.out.println(item.getText());
+				$(item).waitUntilVisible();
+				Assert.assertTrue(
+						"hopahopa",item.getText().toLowerCase().equals(vacationType.toLowerCase()));
+						
 
 			}
 
@@ -140,6 +190,45 @@ public class VacationMenuPage extends PageObject {
 				nextButton.click();
 
 			}
+			
+		}
+
+	}
+	
+	public void verifyVacationStatus(String vacationStatus) {
+		waitABit(2000);
+		//WebElement goToFirstPage = getDriver().findElement(By.cssSelector("span[class='aui-paginator-link aui-paginator-first-link']"));
+		
+		List<Integer> numberOfPagesList = StringUtils
+				.getAllIntegerNumbersFromString(pagesContainer.getText());
+		int noOfPages = numberOfPagesList.get(1);
+		System.out.println("Pages number: " + noOfPages);
+		waitABit(2000);
+
+		for (int i = 0; i < noOfPages; i++) {
+			waitABit(2000);
+			List<WebElement> items = getDriver()
+					.findElements(
+							By.cssSelector("table[class='taglib-search-iterator'] tr td:nth-child(9)"));
+			waitABit(2000);
+			System.out.println("Items size: " + items.size());
+			items.remove(0);
+			System.out.println("Items size: " + items.size());
+			for (WebElement item : items) {
+				System.out.println(item.getText());
+				$(item).waitUntilVisible();
+				Assert.assertTrue(
+						"hopahopa",item.getText().toLowerCase().equals(vacationStatus.toLowerCase()));
+						
+
+			}
+
+			if (i < noOfPages - 1) {
+				WebElement nextButton= getDriver().findElement(By.cssSelector("#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorTop > div.search-pages > div.page-links > a.aui-paginator-link.aui-paginator-next-link"));
+				nextButton.click();
+
+			}
+			
 		}
 
 	}
@@ -151,8 +240,7 @@ public class VacationMenuPage extends PageObject {
 		List<WebElement> elements = getDriver()
 				.findElements(
 						By.cssSelector(".aui-column-content.aui-column-content-first.column-three-content > .column-content >.aui-field.aui-field-choice >.aui-field-content label"));
-		System.out.println(elements.size());
-		// List<WebElement> elements = vacationType1;
+			System.out.println(elements.size());
 		for (WebElement element : elements) {
 			System.out.println(element.getText());
 

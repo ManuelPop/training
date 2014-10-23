@@ -1,0 +1,3 @@
+vacationType,      daysNumber,     vacationStatus
+Holiday,           1 - 5,    		Approved
+Holiday,	       1 - 5,		   Withdrawn
