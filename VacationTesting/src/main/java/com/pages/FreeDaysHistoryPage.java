@@ -59,6 +59,24 @@ public class FreeDaysHistoryPage extends PageObject {
 	    	  return vacationOperationStrList;
 	    }
 	    
+	    public List<String> returnVacationTypeList(){
+	    	  List<WebElement> vacationTypeList = getDriver().findElements(By.cssSelector("td[class*='header.type']"));
+	    	  List<String> vacationTypeStrList = new ArrayList<String>();
+	    	  for (WebElement i : vacationTypeList){
+	    	   vacationTypeStrList.add(i.getText());
+	    	  }
+	    	  return vacationTypeStrList;
+	    }
+	    
+	    public List<String> returnVacationDaysNumberList(){
+	    	  List<WebElement> vacationDaysNumberList = getDriver().findElements(By.cssSelector("td[class*='header.number']"));
+	    	  List<String> vacationDaysNumberStrList = new ArrayList<String>();
+	    	  for (WebElement i : vacationDaysNumberList){
+	    	   vacationDaysNumberStrList.add(i.getText());
+	    	  }
+	    	  return vacationDaysNumberStrList;
+	    }
+	    
 	    public void selectType(String type) {
 			boolean found = false;
 			List<WebElement> elements = getDriver()

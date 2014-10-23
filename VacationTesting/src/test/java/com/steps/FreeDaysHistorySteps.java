@@ -63,4 +63,13 @@ public class FreeDaysHistorySteps extends ScenarioSteps {
 	  List<String> vacationOperationList = freeDaysHistory.returnVacationOperationList();
 	  Assert.assertFalse("Vacation type contains element that should not be there after filter!!!", vacationOperationList.contains(vacationOperationNotWanted));
 	 }
+	
+	@Step
+	 public void checkVacationOperationContain(String vacationOperationWanted){
+	  List<String> vacationOperationList = freeDaysHistory.returnVacationOperationList();
+	  for (String item:vacationOperationList){
+		  Assert.assertTrue("Vacation type contains element that should not be there after filter!!!", item.equals(vacationOperationWanted));
+	  }  
+	 }
+	
 }

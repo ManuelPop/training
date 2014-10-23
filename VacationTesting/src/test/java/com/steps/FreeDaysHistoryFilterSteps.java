@@ -61,6 +61,27 @@ public class FreeDaysHistoryFilterSteps extends ScenarioSteps {
 	 }
 	
 	@Step
+	 public void checkVacationOperationContain(String vacationOperationWanted){
+	  List<String> vacationOperationList = freeDaysHistory.returnVacationOperationList();
+	  for (String item:vacationOperationList){
+		  Assert.assertTrue("Vacation type contains element that should not be there after filter!!!", item.equals(vacationOperationWanted));
+	  }  
+	 }
+	
+	@Step
+	public void verifyOperationFilter(String selectedFilter){
+		boolean verificat = false;
+		if (selectedFilter.toLowerCase().equals("Removed Days".toLowerCase())){
+			checkVacationOperationContain("Removed");
+			verificat = true;
+		}else if (selectedFilter.toLowerCase().equals("Added Days".toLowerCase())){
+			checkVacationOperationContain("Added");
+			verificat = true;
+		}
+		Assert.assertTrue("Nu a facut verificarea!!",verificat);
+	}
+	
+	@Step
 	public void selectType(String value){
 		freeDaysHistory.selectType(value);
 	}
