@@ -136,7 +136,8 @@ public class VacationMenuPage extends PageObject {
 			}
 
 			if (i < noOfPages - 1) {
-				WebElement nextButton= getDriver().findElement(By.cssSelector("#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorTop > div.search-pages > div.page-links > a.aui-paginator-link.aui-paginator-next-link"));
+				WebElement nextButton= getDriver().findElement(By.cssSelector("#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom > div.search-pages > div.page-links > span.aui-paginator-link.aui-paginator-next-link"));
+				
 				nextButton.click();
 
 			}
