@@ -14,16 +14,14 @@ import org.openqa.selenium.WebDriver;
 import Constants.Constants;
 
 import com.google.protobuf.TextFormat.ParseException;
-import com.pages.NewRequestPage;
 import com.requirements.Application;
 import com.steps.Loginsteps;
 import com.steps.VacationTrackSteps;
-import com.steps.newrequestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
 
-public class VacationTrackTest {
+public class VacationTrackerTest {
 	
 	
 	@Managed(uniqueSession = true)
@@ -42,19 +40,17 @@ public class VacationTrackTest {
 	
 	
 	@Test
-	public void Test() throws ParseException {
+	public void applyDifferentFiltersToTestVacationTracker() throws ParseException {
 		
 		loginstep.login(Constants.PMuser, Constants.PMpassword);
 		loginstep.clickVacation();
 		vacationtracker.clickOnTracker();
-/*		vacationtracker.selectStartDate(10, 1, 2014);
+		vacationtracker.selectStartDate(10, 1, 2014);
 		vacationtracker.selectEndDate(11, 3, 2014);
-*/	//	vacationtracker.item("50");
-		vacationtracker.ddlLists("Buildings","Alpha Building");
-		vacationtracker.ddlLists("Type","Sick Leave");
-		vacationtracker.ddlLists("DEPARTMENTS","QA Department");
-		vacationtracker.ddlLists("status","pending");
-		vacationtracker.clickOnApply();
+    	vacationtracker.itemNrShowingOnAPage("50");
+		vacationtracker.findDropdownList("Status","Pending");
+		vacationtracker.clickOnApplyButton();
+		
 	}
 	}
 	
