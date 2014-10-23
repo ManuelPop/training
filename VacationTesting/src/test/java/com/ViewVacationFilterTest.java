@@ -5,7 +5,8 @@ import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
-import net.thucydides.junit.runners.ThucydidesRunner;
+import net.thucydides.junit.annotations.UseTestDataFrom;
+import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,9 +18,10 @@ import com.requirements.Application;
 import com.steps.InboxSteps;
 import com.steps.Loginsteps;
 @Story(Application.Search.SearchByKeyword.class)
-@RunWith(ThucydidesRunner.class)
+@RunWith(ThucydidesParameterizedRunner.class)
+@UseTestDataFrom("/resources/ViewVacationFilterCryteria.csv")
 public class ViewVacationFilterTest {
-
+public String vacationType,	daysNumber,	vacationStatus;
 
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
@@ -40,19 +42,19 @@ public class ViewVacationFilterTest {
     	loginstep.login(Constants.DMuser, Constants.DMpassword);
     	loginstep.clickVacation();
     	viewVacationStep.clickViewVacation();
-    	viewVacationStep.selectVacationType("holiday");
-    	viewVacationStep.selectDaysNumber("1 - 5");
-    	viewVacationStep.selectVacationStatus("Approved");
+    	viewVacationStep.selectVacationType(vacationType);
+    	viewVacationStep.selectDaysNumber(daysNumber);
+    	viewVacationStep.selectVacationStatus(vacationStatus);
     	//viewVacationStep.clickViewVacationHoliday();
     	//viewVacationStep.clickViewVacationFifthCheckBox();
     	//viewVacationStep.clickViewVacationApprovedCheckBox();
     	
     	viewVacationStep.clickViewVacationApplyButton();
-    	viewVacationStep.verifyDaysNumberResults(1,5);
+    	viewVacationStep.verifyDaysNumberResults(daysNumber);
     	viewVacationStep.goToFirstPageButton();
-    	viewVacationStep.verifyVacationTypeResult("holiday");
+    	viewVacationStep.verifyVacationTypeResult(vacationType);
     	viewVacationStep.goToFirstPageButton();
-    	viewVacationStep.verifyVacationStatus("approved");
+    	viewVacationStep.verifyVacationStatus(vacationStatus);
     	
     }
     

@@ -106,8 +106,9 @@ public class VacationMenuPage extends PageObject {
 	private WebElement pagesContainer;
 
 
-	public void verifyDaysNumberResults(int lowerValue, int higherValue) {
+	public void verifyDaysNumberResults(String daysNumber) {
 
+		
 		List<Integer> numberOfPagesList = StringUtils
 				.getAllIntegerNumbersFromString(pagesContainer.getText());
 		int noOfPages = numberOfPagesList.get(1);
@@ -126,10 +127,17 @@ public class VacationMenuPage extends PageObject {
 			for (WebElement item : items) {
 				System.out.println(item.getText());
 				$(item).waitUntilVisible();
+				String stringParts[] = daysNumber.trim().split("-");
+				String lowerValue = stringParts[0];
+				String higherValue = stringParts[1];
+				System.out.println(stringParts.length +"this is the trim string");
+//				System.out.println(higherValue.valueOf(stringParts));
+				
 				Assert.assertTrue(
 						"hopahopa",
-						Integer.parseInt(item.getText()) >= lowerValue
-								&& Integer.parseInt(item.getText()) <= higherValue);
+						Integer.parseInt(item.getText()) >= Integer.parseInt(lowerValue.trim()) 
+								&& Integer.parseInt(item.getText()) <= Integer.parseInt(higherValue.trim()));
+				System.out.println("after assert");
 
 			}
 
