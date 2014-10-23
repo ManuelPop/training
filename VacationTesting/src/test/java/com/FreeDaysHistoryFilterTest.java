@@ -56,6 +56,7 @@ public class FreeDaysHistoryFilterTest {
     	freeDayHistoryStep.clickApply();
     	//freeDayHistoryStep.checkVacationOperationDoesNotContain("Removed");
     	filterStep.verifyOperationFilter(operation);
+    	filterStep.verifyTypeFilter(type);
     }
     
     
