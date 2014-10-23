@@ -4,34 +4,34 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import com.google.protobuf.TextFormat.ParseException;
-import com.pages.NewRequestPage;
-import com.pages.VacationTrackPages;
+import com.pages.NewVacationRequestMenuItem;
+import com.pages.VacationTrackerMenuItem;
 
 public class VacationTrackSteps extends ScenarioSteps {
 
-	VacationTrackPages vacationtracker;
+	VacationTrackerMenuItem vacationtracker;
 	
 	
 	@Step
 	public void clickOnTracker() {
-		vacationtracker.clickOnTracker();
+		vacationtracker.clickOnTrackerMenuItem();
 		
 	}
 	
-	VacationTrackPages startdate;
+	VacationTrackerMenuItem startdate;
 	
 	
 	@Step
-	public void clickOnStartDate(){
-		startdate.clickOnStartDate();
+	public void clickToSelectstartDateOfVacation(){
+		startdate.clickToSelectStartDateOfVacation();
 		
 	}
 	
-	VacationTrackPages enddate;
+	VacationTrackerMenuItem enddate;
 	
 	@Step
-	public void clickOnEndDate(){
-		enddate.clickOnEndDate();
+	public void clickToSelectEndDateOfVacation(){
+		enddate.clickToSelectEndDateOfVacation();
 		
 	}
 	
@@ -40,38 +40,38 @@ public class VacationTrackSteps extends ScenarioSteps {
 	@Step
 	 public void selectStartDate(int month, int day, int year) throws ParseException
 	 {
-	  vacationtracker.clickOnStartDate();
-  	  vacationtracker.setDate(month, day, year);
+	  vacationtracker.clickToSelectStartDateOfVacation();
+  	  vacationtracker.settingDateGivenAsParameter(month, day, year);
 	  
 	 }
 
 	 public void selectEndDate(int month, int day, int year) throws ParseException 
 	 {
-	  vacationtracker.clickOnEndDate();
-	  vacationtracker.setDate(month, day, year);
+	  vacationtracker.clickToSelectEndDateOfVacation();
+	  vacationtracker.settingDateGivenAsParameter(month, day, year);
 
 	  
 	 }
 	
-	VacationTrackPages apply;
+	VacationTrackerMenuItem apply;
 	@Step
-	public void clickOnApply()
+	public void clickOnApplyButton()
 	{
-	 apply.clickOnApply();
+	 apply.clickOnApplyButton();
 
 	}
 	
 	
 
-	VacationTrackPages items;
+	VacationTrackerMenuItem items;
 	@Step
-	public void item(String string){
-		items.items(string);
+	public void itemNrShowingOnAPage(String string){
+		items.itemNrShowingOnAPage(string);
 	}
 	
-	VacationTrackPages ddlLists;
+	VacationTrackerMenuItem ddlLists;
 	@Step
-	public void ddlLists(String dropDownListName,String value)
+	public void findDropdownList(String dropDownListName,String value)
 	{
 		ddlLists.selectAnItemFromADropDownList(dropDownListName, value);
 		

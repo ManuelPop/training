@@ -17,19 +17,19 @@ import Constants.StringUtils;
 
 import com.google.protobuf.TextFormat.ParseException;
 
-public class VacationTrackPages extends PageObject {
+public class VacationTrackerMenuItem extends PageObject {
 
 	@FindBy(css = "a[href*='vacation-tracker']")
 	private WebElementFacade vacationtracker;
 
-	public void clickOnTracker() {
+	public void clickOnTrackerMenuItem() {
 		vacationtracker.click();
 	}
 
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_trackerStartDate']")
 	private WebElementFacade startdate;
 
-	public void clickOnStartDate() {
+	public void clickToSelectStartDateOfVacation() {
 		startdate.click();
 
 	}
@@ -37,7 +37,7 @@ public class VacationTrackPages extends PageObject {
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_trackerEndDate']")
 	private WebElementFacade enddate;
 
-	public void clickOnEndDate() {
+	public void clickToSelectEndDateOfVacation() {
 		enddate.click();
 
 	}
@@ -51,7 +51,7 @@ public class VacationTrackPages extends PageObject {
 	@FindBy(css = "div[style*='block'] td.dp_previous")
 	private WebElementFacade previousButton;
 
-	public void setDate(int month, int day, int year) throws ParseException {
+	public void settingDateGivenAsParameter(int month, int day, int year) throws ParseException {
 
 		Calendar calNew = Calendar.getInstance();
 		SimpleDateFormat sdfNew = new SimpleDateFormat("dd/MM/yyyy");
@@ -104,14 +104,14 @@ public class VacationTrackPages extends PageObject {
 	@FindBy(css = "input[id='_evovacation_WAR_EvoVacationportlet_applyButton']")
 	private WebElementFacade apply;
 
-	public void clickOnApply() {
+	public void clickOnApplyButton() {
 		apply.click();
 	}
 
 	@FindBy(css = "#_evovacation_WAR_EvoVacationportlet_evozonVacationsSearchContainerPageIteratorBottom_itemsPerPage")
 	private WebElement itemsPerPageDdl;
 
-	public void items(String value) {
+	public void itemNrShowingOnAPage(String value) {
 		element(itemsPerPageDdl).selectByVisibleText(value);// selectByVisibleText()
 															// works only on
 															// select

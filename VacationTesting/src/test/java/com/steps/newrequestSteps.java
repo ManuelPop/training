@@ -8,27 +8,27 @@ import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import com.google.protobuf.TextFormat.ParseException;
-import com.pages.NewRequestPage;
+import com.pages.NewVacationRequestMenuItem;
 
 
 public class newrequestSteps extends ScenarioSteps {
 
-	NewRequestPage newrequest;
+	NewVacationRequestMenuItem newrequest;
 
 	@Step
-	public void clickOnNewRequest() {
+	public void clickOnNewVacationRequest() {
 
-		newrequest.clickOnNewRequest();
+		newrequest.clickOnNewVacationRequest();
 
 	}
 	
 	
 	@Step
-	 public void selectStartDate(int month, int day, int year) throws ParseException
+	 public void clickToSelectStartDateOfVacation(int month, int day, int year) throws ParseException
 	 {
-	  newrequest.clickOnStartDate();
+	  newrequest.clickOnStartDateToSelectStartDate();
 	  try {
-		newrequest.setDate(month, day, year);
+		newrequest.settingDateByGivenParameter(month, day, year);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -36,10 +36,10 @@ public class newrequestSteps extends ScenarioSteps {
 	  
 	 }
 
-	 public void selectEndDate(int month, int day, int year) throws ParseException {
-	  newrequest.clickOnEndDate();
+	 public void clickToSelectEndDateOfVacation(int month, int day, int year) throws ParseException {
+	  newrequest.clickOnEndDateToSelectEndDate();
 	  try {
-		newrequest.setDate(month, day, year);
+		newrequest.settingDateByGivenParameter(month, day, year);
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -50,74 +50,74 @@ public class newrequestSteps extends ScenarioSteps {
 	
 
 	//Special Vacation type
-	NewRequestPage specialvacation;
+	NewVacationRequestMenuItem specialvacation;
 	
 	@Step
-	public void chooseSpV(){
-		specialvacation.chooseSpV();
+	public void chooseSpecialVacationType(){
+		specialvacation.chooseSpecialVacationType();
 		
 	}
-	NewRequestPage othervacation;
+	NewVacationRequestMenuItem othervacation;
 	
 	@Step
-	public void chooseOther() {
-		othervacation.chooseOther();
+	public void chooseOtherSpecialVacationType() {
+		othervacation.chooseOtherSpecialVacationType();
 		
 	}
-	NewRequestPage marriagevacation;
+	NewVacationRequestMenuItem marriagevacation;
 	
 	@Step
-	public void chooseMarriage() {
-		marriagevacation.chooseMarriage();
+	public void chooseMarriageVacationType() {
+		marriagevacation.chooseMarriageVacationType();
 		
 	}
-	NewRequestPage childvacation;
+	NewVacationRequestMenuItem childvacation;
 	
 	@Step
-	public void chooseChild() {
-		childvacation.chooseChild();
+	public void chooseChildBirthVacationType() {
+		childvacation.chooseChildBirthVacationType();
 		
 	}
-	NewRequestPage funeralvacation;
+	NewVacationRequestMenuItem funeralvacation;
 	
 	@Step
-	public void chooseFuneral() {
-		funeralvacation.chooseFuneral();
-		
-	}
-	
-	
-	
-	NewRequestPage holiday;
-	
-	@Step
-	public void chooseHoliday() {
-		holiday.chooseHoliday();		
-	}
-	
-	
-	NewRequestPage unpaid;
-	
-	@Step
-	public void chooseUnpaid() {
-		unpaid.chooseUnpaid();
-		
-	}
-	
-	
-	NewRequestPage sick;
-	
-	@Step
-	public void chooseSick() {
-		sick.chooseSick();
+	public void chooseFuneralVacationType() {
+		funeralvacation.chooseFuneralVacationType();
 		
 	}
 	
 	
 	
+	NewVacationRequestMenuItem holiday;
+	
+	@Step
+	public void chooseHolidayVacationType() {
+		holiday.chooseHolidayVacationType();		
+	}
 	
 	
-	NewRequestPage addcomment;
+	NewVacationRequestMenuItem unpaid;
+	
+	@Step
+	public void chooseVacationWithoutPaymentType() {
+		unpaid.chooseVacationWithoutPayment();
+		
+	}
+	
+	
+	NewVacationRequestMenuItem sick;
+	
+	@Step
+	public void chooseSickLeaveVacationType() {
+		sick.chooseSickVacationType();
+		
+	}
+	
+	
+	
+	
+	
+	NewVacationRequestMenuItem addcomment;
 	
 	@Step
 	public void addComment() {
@@ -125,31 +125,31 @@ public class newrequestSteps extends ScenarioSteps {
 		
 	}
 	
-	NewRequestPage content;
+	NewVacationRequestMenuItem content;
 	
 	@Step
-	public void addContent(String text) {
-		content.addContent(text);
+	public void addContentToComment(String text) {
+		content.addContentToCommentBox(text);
 		
 	}
 	
-	NewRequestPage save;
+	NewVacationRequestMenuItem save;
 	
 	@Step
-	public void clickOnSave() {
-		save.clickOnSave();
+	public void clickOnSaveButton() {
+		save.clickOnSaveButton();
 		
 	}
 	
-	NewRequestPage cancel;
+	NewVacationRequestMenuItem cancel;
 	
 	@Step
-	public void clickOnCancel() {
+	public void clickOnCancelButton() {
 		cancel.clickOnCancel();
 		
 	}
 
-	NewRequestPage logout;
+	NewVacationRequestMenuItem logout;
 	
 	@Step
 	public void logOut() {
@@ -173,11 +173,11 @@ public class newrequestSteps extends ScenarioSteps {
 	}
 	
 	
-	NewRequestPage withdraw;
+	NewVacationRequestMenuItem withdraw;
 	
 	@Step
-	public void clickWithDraw(){
-		withdraw.clickWithDraw();
+	public void clickOnWithdrawButton(){
+		withdraw.clickOnWithdrawButton();
 	}
 	
 	
