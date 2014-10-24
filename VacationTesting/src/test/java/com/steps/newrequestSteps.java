@@ -8,12 +8,12 @@ import net.thucydides.core.annotations.findby.By;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import com.google.protobuf.TextFormat.ParseException;
-import com.pages.NewVacationRequestMenuItem;
+import com.pages.NewVacationRequestMenuItemPage;
 
 
 public class newrequestSteps extends ScenarioSteps {
 
-	NewVacationRequestMenuItem newrequest;
+	NewVacationRequestMenuItemPage newrequest;
 
 	@Step
 	public void clickOnNewVacationRequest() {
@@ -50,35 +50,35 @@ public class newrequestSteps extends ScenarioSteps {
 	
 
 	//Special Vacation type
-	NewVacationRequestMenuItem specialvacation;
+	NewVacationRequestMenuItemPage specialvacation;
 	
 	@Step
 	public void chooseSpecialVacationType(){
 		specialvacation.chooseSpecialVacationType();
 		
 	}
-	NewVacationRequestMenuItem othervacation;
+	NewVacationRequestMenuItemPage othervacation;
 	
 	@Step
 	public void chooseOtherSpecialVacationType() {
 		othervacation.chooseOtherSpecialVacationType();
 		
 	}
-	NewVacationRequestMenuItem marriagevacation;
+	NewVacationRequestMenuItemPage marriagevacation;
 	
 	@Step
 	public void chooseMarriageVacationType() {
 		marriagevacation.chooseMarriageVacationType();
 		
 	}
-	NewVacationRequestMenuItem childvacation;
+	NewVacationRequestMenuItemPage childvacation;
 	
 	@Step
 	public void chooseChildBirthVacationType() {
 		childvacation.chooseChildBirthVacationType();
 		
 	}
-	NewVacationRequestMenuItem funeralvacation;
+	NewVacationRequestMenuItemPage funeralvacation;
 	
 	@Step
 	public void chooseFuneralVacationType() {
@@ -88,7 +88,7 @@ public class newrequestSteps extends ScenarioSteps {
 	
 	
 	
-	NewVacationRequestMenuItem holiday;
+	NewVacationRequestMenuItemPage holiday;
 	
 	@Step
 	public void chooseHolidayVacationType() {
@@ -96,7 +96,7 @@ public class newrequestSteps extends ScenarioSteps {
 	}
 	
 	
-	NewVacationRequestMenuItem unpaid;
+	NewVacationRequestMenuItemPage unpaid;
 	
 	@Step
 	public void chooseVacationWithoutPaymentType() {
@@ -105,7 +105,7 @@ public class newrequestSteps extends ScenarioSteps {
 	}
 	
 	
-	NewVacationRequestMenuItem sick;
+	NewVacationRequestMenuItemPage sick;
 	
 	@Step
 	public void chooseSickLeaveVacationType() {
@@ -117,7 +117,7 @@ public class newrequestSteps extends ScenarioSteps {
 	
 	
 	
-	NewVacationRequestMenuItem addcomment;
+	NewVacationRequestMenuItemPage addcomment;
 	
 	@Step
 	public void addComment() {
@@ -125,7 +125,7 @@ public class newrequestSteps extends ScenarioSteps {
 		
 	}
 	
-	NewVacationRequestMenuItem content;
+	NewVacationRequestMenuItemPage content;
 	
 	@Step
 	public void addContentToComment(String text) {
@@ -133,7 +133,7 @@ public class newrequestSteps extends ScenarioSteps {
 		
 	}
 	
-	NewVacationRequestMenuItem save;
+	NewVacationRequestMenuItemPage save;
 	
 	@Step
 	public void clickOnSaveButton() {
@@ -141,7 +141,7 @@ public class newrequestSteps extends ScenarioSteps {
 		
 	}
 	
-	NewVacationRequestMenuItem cancel;
+	NewVacationRequestMenuItemPage cancel;
 	
 	@Step
 	public void clickOnCancelButton() {
@@ -149,7 +149,7 @@ public class newrequestSteps extends ScenarioSteps {
 		
 	}
 
-	NewVacationRequestMenuItem logout;
+	NewVacationRequestMenuItemPage logout;
 	
 	@Step
 	public void logOut() {
@@ -173,7 +173,7 @@ public class newrequestSteps extends ScenarioSteps {
 	}
 	
 	
-	NewVacationRequestMenuItem withdraw;
+	NewVacationRequestMenuItemPage withdraw;
 	
 	@Step
 	public void clickOnWithdrawButton(){

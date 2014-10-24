@@ -144,6 +144,8 @@ public class VacationTrackerMenuItemPage extends PageObject {
 		for (WebElement ddlList : ddlLists) {
 			if (ddlList.getText().toLowerCase()
 					.equals(dropDownListName.toLowerCase())) {
+				if (ddlList.isSelected())
+					ddlList.click();
 				ddlFound = true;
 				ddlList.click();
 				break;
