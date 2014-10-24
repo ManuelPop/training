@@ -13,16 +13,19 @@ import Constants.Constants;
 import com.pages.HomePage;
 import com.pages.Loginpage;
 import com.pages.MyFreeDaysPage;
+import com.pages.StateVacationRequestPage;
 
 public class VerifyEmailSteps {
 	
-
+	StateVacationRequestPage stateVacationRequestPage;
 	
 	@Step
-    public String createEmailContent(String titlu){
-        String emailContent ="Dear Manuel, <br /><br />You have submitted a new Vacation Request. Your holiday interval is: <strong>27/October/2014</strong> - <strong>27/October/2014</strong>.<br />Please check if the request was approved before going on holiday, if not please contact your vacation approver, Edina Moldvai.<br/> <br/> Cheers, <br /> The EvoPortal Team";
-        
-		
+    public String createEmailContent(){
+        String emailContent ="Dear" + stateVacationRequestPage.getEmployeeName() + ", "
+        		+ "<br /><br />You have submitted a new Vacation Request. Your holiday interval is: <strong>"+
+        		stateVacationRequestPage.getStartDate()+"</strong> - <strong>"+stateVacationRequestPage.getEndDate()+"</strong>."
+        		+ "<br />Please check if the request was approved before going on holiday, if not please contact your vacation approver, "
+        		+  stateVacationRequestPage.getAssigneeName()+".<br/> <br/> Cheers, <br /> The EvoPortal Team";
 		return emailContent;
     }
 	

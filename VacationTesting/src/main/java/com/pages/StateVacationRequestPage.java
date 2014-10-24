@@ -24,24 +24,29 @@ private WebElementFacade startDate;
 private WebElementFacade endDate;
 
 
-public void getAssigneeName(){
-	assigneeName.getText();
+public String getAssigneeName(){
+	String assignee=assigneeName.getText();
+	return assignee;
 }
 
-public void getDateCreatedON(){
-	createdOn.getText();
+public String getDateCreatedON(){
+	String dateCreate = createdOn.getText();
+	return dateCreate;
 }
 
-public void getEmployeeName(){
-	employeeName.getText();
+public String getEmployeeName(){
+	String name = employeeName.getText();
+	return name;
 }
 	
-public void getStartDate(){
-	startDate.getText();
+public String getStartDate(){
+	String startD = startDate.getText();
+	return startD;
 }
 
-public void getEndDate(){
-	endDate.getText();	
+public String getEndDate(){
+	String endD = endDate.getText();
+	return endD;
 }
 
 
