@@ -64,18 +64,53 @@ public class FreeDaysHistoryFilterSteps extends ScenarioSteps {
 	 public void checkVacationOperationContain(String vacationOperationWanted){
 	  List<String> vacationOperationList = freeDaysHistory.returnVacationOperationList();
 	  for (String item:vacationOperationList){
-		  Assert.assertTrue("Vacation type contains element that should not be there after filter!!!", item.equals(vacationOperationWanted));
+		  Assert.assertTrue("Vacation type contains element that should not be there after filter!!!", item.contentEquals(vacationOperationWanted));
 	  }  
+	 }
+	
+	@Step
+	 public void checkVacationTypeContain(String vacationTypeWanted){
+		boolean verificare = true;
+		List<String> vacationTypeList = freeDaysHistory.returnVacationTypeList();
+		for (String item:vacationTypeList){
+		  if (!item.contentEquals(vacationTypeWanted)){
+		  verificare=false;
+		  } 
+		}  
+		Assert.assertTrue("Vacation type contains element that should not be there after filter!!!", verificare);
 	 }
 	
 	@Step
 	public void verifyOperationFilter(String selectedFilter){
 		boolean verificat = false;
-		if (selectedFilter.toLowerCase().equals("Removed Days".toLowerCase())){
+		if (selectedFilter.toLowerCase().contentEquals("Removed Days".toLowerCase())){
 			checkVacationOperationContain("Removed");
 			verificat = true;
-		}else if (selectedFilter.toLowerCase().equals("Added Days".toLowerCase())){
+		}else if (selectedFilter.toLowerCase().contentEquals("Added Days".toLowerCase())){
 			checkVacationOperationContain("Added");
+			verificat = true;
+		}else{
+			verificat = true;
+		}
+		Assert.assertTrue("Nu a facut verificarea!!",verificat);
+	}
+	
+	@Step
+	public void verifyTypeFilter(String selectedFilter){
+		boolean verificat = false;
+		if (selectedFilter.toLowerCase().contentEquals("Anniversary".toLowerCase())){
+			checkVacationTypeContain("Anniversary");
+			verificat = true;
+		}else if (selectedFilter.toLowerCase().contentEquals("Extra Days".toLowerCase())){
+			checkVacationTypeContain("Extra Days");
+			verificat = true;
+		}else if (selectedFilter.toLowerCase().contentEquals("Vacation days".toLowerCase())){
+			checkVacationTypeContain("Vacation Days");
+			verificat = true;
+		}else if (selectedFilter.toLowerCase().contentEquals("Vacation Without Payment".toLowerCase())){
+			checkVacationTypeContain("Vacation Without Payment");
+			verificat = true;
+		}else{
 			verificat = true;
 		}
 		Assert.assertTrue("Nu a facut verificarea!!",verificat);

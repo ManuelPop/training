@@ -1,15 +1,18 @@
 package com.steps;
 
+import java.util.List;
+
+import org.junit.Assert;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import com.google.protobuf.TextFormat.ParseException;
 import com.pages.NewVacationRequestMenuItem;
-import com.pages.VacationTrackerMenuItem;
+import com.pages.VacationTrackerMenuItemPage;
 
 public class VacationTrackSteps extends ScenarioSteps {
 
-	VacationTrackerMenuItem vacationtracker;
+	VacationTrackerMenuItemPage vacationtracker;
 	
 	
 	@Step
@@ -18,20 +21,20 @@ public class VacationTrackSteps extends ScenarioSteps {
 		
 	}
 	
-	VacationTrackerMenuItem startdate;
+	
 	
 	
 	@Step
 	public void clickToSelectstartDateOfVacation(){
-		startdate.clickToSelectStartDateOfVacation();
+		vacationtracker.clickToSelectStartDateOfVacation();
 		
 	}
 	
-	VacationTrackerMenuItem enddate;
+	
 	
 	@Step
 	public void clickToSelectEndDateOfVacation(){
-		enddate.clickToSelectEndDateOfVacation();
+		vacationtracker.clickToSelectEndDateOfVacation();
 		
 	}
 	
@@ -53,34 +56,44 @@ public class VacationTrackSteps extends ScenarioSteps {
 	  
 	 }
 	
-	VacationTrackerMenuItem apply;
+	
 	@Step
 	public void clickOnApplyButton()
 	{
-	 apply.clickOnApplyButton();
+	vacationtracker.clickOnApplyButton();
 
 	}
 	
 	
 
-	VacationTrackerMenuItem items;
+
 	@Step
 	public void itemNrShowingOnAPage(String string){
-		items.itemNrShowingOnAPage(string);
+		vacationtracker.itemNrShowingOnAPage(string);
 	}
 	
-	VacationTrackerMenuItem ddlLists;
+
 	@Step
 	public void findDropdownList(String dropDownListName,String value)
 	{
-		ddlLists.selectAnItemFromADropDownList(dropDownListName, value);
+		vacationtracker.selectAnItemFromADropDownList(dropDownListName, value);
 		
 	}
 	
-	
-
 
 	
+	@Step
+	public void checkIfFilterIsApplied(String otherFilter){
+		  List<String> newlist = vacationtracker.verifyStatusFilter();
+	
+		  for(String i:newlist)
+			  
+		  { 
+			
+			  Assert.assertTrue("error!!", otherFilter.contentEquals(i));
+		  }
+
+		 }
 	
 	
 	

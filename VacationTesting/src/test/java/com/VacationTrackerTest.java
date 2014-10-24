@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import Constants.Constants;
 
 import com.google.protobuf.TextFormat.ParseException;
+import com.pages.NewVacationRequestMenuItem;
 import com.requirements.Application;
 import com.steps.Loginsteps;
 import com.steps.VacationTrackSteps;
@@ -35,6 +36,9 @@ public class VacationTrackerTest {
 	
 	
 	@Steps
+	public NewVacationRequestMenuItem logout;
+	
+	@Steps
 	public VacationTrackSteps vacationtracker;
 	
 	
@@ -45,11 +49,14 @@ public class VacationTrackerTest {
 		loginstep.login(Constants.PMuser, Constants.PMpassword);
 		loginstep.clickVacation();
 		vacationtracker.clickOnTracker();
-		vacationtracker.selectStartDate(10, 1, 2014);
-		vacationtracker.selectEndDate(11, 3, 2014);
-    	vacationtracker.itemNrShowingOnAPage("50");
+		//vacationtracker.selectStartDate(10, 10, 2014);
+		//vacationtracker.selectEndDate(10, 11, 2014);
+		//vacationtracker.clickOnApplyButton();
+    	//vacationtracker.itemNrShowingOnAPage("50");
 		vacationtracker.findDropdownList("Status","Pending");
 		vacationtracker.clickOnApplyButton();
+		vacationtracker.checkIfFilterIsApplied("Pending");
+
 		
 	}
 	}

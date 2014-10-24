@@ -136,4 +136,5 @@ public class FreeDaysHistoryPage extends PageObject {
 			}
 			Assert.assertTrue("Days number was not found!", found);
 		}
+
 }
