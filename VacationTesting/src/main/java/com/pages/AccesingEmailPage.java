@@ -1,5 +1,6 @@
 package com.pages;
 
+import java.text.SimpleDateFormat;
 import java.util.Properties;
 
 import javax.mail.Address;
@@ -35,7 +36,10 @@ public class AccesingEmailPage extends PageObject {
 			inbox.open(Folder.READ_ONLY);
 			Message msg = inbox.getMessage(inbox.getMessageCount());
 			String emailSubject = msg.getSubject();
-			String sentDate = msg.getSentDate().toString();
+			String sd = msg.getSentDate().toString();
+			SimpleDateFormat newDate= new SimpleDateFormat("dd-MM-yy:HH:mm:SS");
+			String sentDate = newDate.format(sd);
+			
 			Object content = msg.getContent();
 			Address[] in = msg.getFrom();
 			for (Address address : in) {
@@ -59,7 +63,7 @@ public class AccesingEmailPage extends PageObject {
 			}
 			//boolean found = false;
 			//if()
-			//Assert.assertTrue("hopahopa", emailSubject.contentEquals("You have submitted a new Vacation Request") && sentDate.contentEquals(stateVacationRequestPage.getDateCreatedON() && content.toString().contentEquals(stateVacationRequestPage.) ));
+			Assert.assertTrue("hopahopa", emailSubject.contentEquals("You have submitted a new Vacation Request") && sentDate.contains(stateVacationRequestPage.getDateCreatedON()) && content.toString().contentEquals(stateVacationRequestPage.createEmailContent()));
 
 		} catch (Exception mex) {
 			mex.printStackTrace();
