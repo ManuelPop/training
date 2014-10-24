@@ -14,10 +14,11 @@ import org.openqa.selenium.WebDriver;
 import Constants.Constants;
 
 import com.google.protobuf.TextFormat.ParseException;
-import com.pages.NewVacationRequestMenuItem;
+import com.pages.NewVacationRequestMenuItemPage;
 import com.requirements.Application;
 import com.steps.Loginsteps;
 import com.steps.VacationTrackSteps;
+import com.steps.newrequestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
@@ -36,7 +37,7 @@ public class VacationTrackerTest {
 	
 	
 	@Steps
-	public NewVacationRequestMenuItem logout;
+	public NewVacationRequestMenuItemPage logout;
 	
 	@Steps
 	public VacationTrackSteps vacationtracker;
@@ -56,6 +57,7 @@ public class VacationTrackerTest {
 		vacationtracker.findDropdownList("Status","Pending");
 		vacationtracker.clickOnApplyButton();
 		vacationtracker.checkIfFilterIsApplied("Pending");
+	
 
 		
 	}

@@ -13,7 +13,7 @@ import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
 
-public class NewVacationRequestMenuItem extends PageObject 
+public class NewVacationRequestMenuItemPage extends PageObject 
 {
 	
 
