@@ -7,7 +7,7 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
 import com.google.protobuf.TextFormat.ParseException;
-import com.pages.NewVacationRequestMenuItem;
+import com.pages.NewVacationRequestMenuItemPage;
 import com.pages.VacationTrackerMenuItemPage;
 
 public class VacationTrackSteps extends ScenarioSteps {
