@@ -107,6 +107,7 @@ public class NewVacationRequestTests {
 			newrequest.addComment();
 			newrequest.addContentToComment("anything..");
 			newrequest.clickOnSaveButton();
+			
 			//newrequest.clickOnCancel();
 			newrequest.logOut();
 		}
