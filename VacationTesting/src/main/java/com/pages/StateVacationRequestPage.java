@@ -1,5 +1,6 @@
 package com.pages;
 import net.thucydides.core.annotations.DefaultUrl;
+import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.findby.FindBy;
 import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
@@ -49,6 +50,14 @@ public String getEndDate(){
 	return endD;
 }
 
+public String createEmailContent(){
+    String emailContent ="Dear" + getEmployeeName() + ", "
+    		+ "<br /><br />You have submitted a new Vacation Request. Your holiday interval is: <strong>"+
+    		getStartDate()+"</strong> - <strong>"+getEndDate()+"</strong>."
+    		+ "<br />Please check if the request was approved before going on holiday, if not please contact your vacation approver, "
+    		+  getAssigneeName()+".<br/> <br/> Cheers, <br /> The EvoPortal Team";
+	return emailContent;
+}
 
 
 }
