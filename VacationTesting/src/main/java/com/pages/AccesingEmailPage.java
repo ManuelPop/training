@@ -10,10 +10,16 @@ import javax.mail.Multipart;
 import javax.mail.Session;
 import javax.mail.Store;
 
+import org.junit.Assert;
+
+import com.sun.mail.imap.protocol.BODY;
+
 import net.thucydides.core.pages.PageObject;
 
 //@DefaultUrl("http://192.168.1.68:9090/home")
 public class AccesingEmailPage extends PageObject {
+	
+	StateVacationRequestPage stateVacationRequestPage;
 
 	public void readEmail(String emailLink, String emailAddress,String password) {
 		Properties props = new Properties();
@@ -36,7 +42,7 @@ public class AccesingEmailPage extends PageObject {
 				System.out.println("SUBJECT:" + emailSubject);
 			}
 			if (content instanceof String) {
-				String body = (String) content;
+				 String body = (String) content;
 				
 				System.out.println("SENT DATE:" + sentDate);
 				System.out.println("SUBJECT:" + emailSubject);
@@ -51,10 +57,14 @@ public class AccesingEmailPage extends PageObject {
 				System.out.println("SUBJECT:" + emailSubject);
 				System.out.println("CONTENT:" + bp.getContent());
 			}
+			//boolean found = false;
+			//if()
+			//Assert.assertTrue("hopahopa", emailSubject.contentEquals("You have submitted a new Vacation Request") && sentDate.contentEquals(stateVacationRequestPage.getDateCreatedON() && content.toString().contentEquals(stateVacationRequestPage.) ));
 
 		} catch (Exception mex) {
 			mex.printStackTrace();
 		}
+		
 	}
 
 }

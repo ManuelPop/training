@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 
 import Constants.Constants;
 
+import com.pages.AccesingEmailPage;
 import com.pages.HomePage;
 import com.pages.Loginpage;
 import com.pages.MyFreeDaysPage;
@@ -18,7 +19,7 @@ import com.pages.StateVacationRequestPage;
 public class VerifyEmailSteps {
 	
 	StateVacationRequestPage stateVacationRequestPage;
-	
+	AccesingEmailPage accesingEmailPage;
 	@Step
     public String createEmailContent(){
         String emailContent ="Dear" + stateVacationRequestPage.getEmployeeName() + ", "
@@ -29,6 +30,9 @@ public class VerifyEmailSteps {
 		return emailContent;
     }
 	
-	
+	@Step
+	public void readEmail(String emailLink, String emailAddress,String password){
+		
+	}
 
 }
