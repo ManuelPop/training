@@ -28,7 +28,7 @@ public class StateVacationRequestPage {
 	private WebElementFacade endDate;
 
 	public String getAssigneeName() {
-		String assignee = assigneeName.getText();
+		String assignee = assigneeName.getText().toLowerCase();
 		return assignee;
 	}
 
@@ -39,7 +39,7 @@ public class StateVacationRequestPage {
 	}
 
 	public String getEmployeeName() {
-		String name = employeeName.getText();
+		String name = employeeName.getText().toLowerCase();
 		return name;
 	}
 

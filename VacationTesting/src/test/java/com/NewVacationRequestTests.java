@@ -1,5 +1,9 @@
 package com;
 
+import java.io.IOException;
+
+import javax.mail.MessagingException;
+
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Steps;
@@ -15,6 +19,7 @@ import Constants.Constants;
 
 import com.google.protobuf.TextFormat.ParseException;
 import com.requirements.Application;
+import com.steps.VerifyEmailSteps;
 import com.steps.newrequestSteps;
 import com.steps.Loginsteps;
 
@@ -50,139 +55,143 @@ public class NewVacationRequestTests {
 	@Steps
 	public newrequestSteps startdate;
 	
+	@Steps
+	public VerifyEmailSteps verifyEmailSteps;
+	
 	
 	
 	
 	@Test
-	public void testSpecialVacationRequestOtherType() throws ParseException {
+	public void testSpecialVacationRequestOtherType() throws MessagingException, IOException {
 
-		loginstep.login(Constants.PMuser, Constants.PMpassword);
+		loginstep.login(Constants.User, Constants.UserPassword);
 		loginstep.clickVacation();
 		newrequest.clickOnNewVacationRequest();	
-		newrequest.clickToSelectStartDateOfVacation(11, 2, 2014);
-	    newrequest.clickToSelectEndDateOfVacation(11, 2, 2014);
+		newrequest.clickToSelectStartDateOfVacation(24, 10, 2014);
+	    newrequest.clickToSelectEndDateOfVacation(24, 10, 2014);
 		newrequest.chooseSpecialVacationType();
 		newrequest.chooseOtherSpecialVacationType();
 		newrequest.addComment();
 		newrequest.addContentToComment("anything..");
 		newrequest.clickOnSaveButton();
+		verifyEmailSteps.verifyEmail("mail.evozon.com","manuel.pop@evozon.com","userPass0.");
 		//newrequest.clickOnCancel();
-		newrequest.verifyIfFailed("Your request failed to complete.");
-		newrequest.logOut();
+//		newrequest.verifyIfFailed("Your request failed to complete.");
+//		newrequest.logOut();
 		
 	}
 	
 	
-		@Test
-		public void testSpecialVacationRequestMarriageType() throws ParseException {
-
-			loginstep.login(Constants.PMuser, Constants.PMpassword);
-			loginstep.clickVacation();
-			newrequest.clickOnNewVacationRequest();	
-			newrequest.clickToSelectStartDateOfVacation(11, 7, 2014);
-		    newrequest.clickToSelectEndDateOfVacation(11, 7, 2014);
-			newrequest.chooseSpecialVacationType();
-			newrequest.chooseMarriageVacationType();
-			newrequest.addComment();
-			newrequest.addContentToComment("anything..");
-			newrequest.clickOnSaveButton();
-			//newrequest.clickOnCancel();
-			newrequest.verifyIfSucceed("Your request completed successfully.");
-			newrequest.clickOnWithdrawButton();
-			newrequest.logOut();
-		}
-		
-		
-		
-		@Test
-		public void testSpecialVacationRequestChildBirthType() throws ParseException {
-
-			loginstep.login(Constants.PMuser, Constants.PMpassword);
-			loginstep.clickVacation();
-			newrequest.clickOnNewVacationRequest();	
-			newrequest.clickToSelectStartDateOfVacation(10, 28, 2014);
-		    newrequest.clickToSelectEndDateOfVacation(10, 28, 2014);
-			newrequest.chooseSpecialVacationType();
-			newrequest.chooseChildBirthVacationType();
-			newrequest.addComment();
-			newrequest.addContentToComment("anything..");
-			newrequest.clickOnSaveButton();
-			
-			//newrequest.clickOnCancel();
-			newrequest.logOut();
-		}
-		
-		
-		
-		@Test
-		public void testSpecialvacationRequestFuneralType() throws ParseException {
-
-			loginstep.login(Constants.PMuser, Constants.PMpassword);
-			loginstep.clickVacation();
-			newrequest.clickOnNewVacationRequest();	
-			newrequest.clickToSelectStartDateOfVacation(11, 13, 2014);
-		    newrequest.clickToSelectEndDateOfVacation(11, 13, 2014);
-			newrequest.chooseSpecialVacationType();
-			newrequest.chooseFuneralVacationType();
-			newrequest.addComment();
-			newrequest.addContentToComment("anything..");
-			newrequest.clickOnSaveButton();
-			//newrequest.clickOnCancel();
-			newrequest.logOut();
-		}
-	
-	
-	
-	
-	@Test
-	public void testHolidayVacationRequest() throws ParseException {
-
-		loginstep.login(Constants.PMuser, Constants.PMpassword);
-		loginstep.clickVacation();
-		newrequest.clickOnNewVacationRequest();	
-		newrequest.clickToSelectStartDateOfVacation(11, 15, 2014);
-	    newrequest.clickToSelectEndDateOfVacation(11, 17, 2014);
-		newrequest.chooseHolidayVacationType();
-		newrequest.addComment();
-		newrequest.addContentToComment("anything..");
-		newrequest.clickOnSaveButton();
-		//newrequest.clickOnCancel();
-		newrequest.logOut();
-	}
-	
-	
-	@Test
-	public void testVacationWithoutPaymentRequest() throws ParseException {
-
-		loginstep.login(Constants.PMuser, Constants.PMpassword);
-		loginstep.clickVacation();
-		newrequest.clickOnNewVacationRequest();	
-		newrequest.clickToSelectStartDateOfVacation(11, 11, 2014);
-	    newrequest.clickToSelectEndDateOfVacation(11, 11, 2014);
-		newrequest.chooseVacationWithoutPaymentType();
-		newrequest.addComment();
-		newrequest.addContentToComment("anything..");
-		newrequest.clickOnSaveButton();
-		//newrequest.clickOnCancel();
-		newrequest.logOut();
-	}
-	
-	
-	
-	@Test
-	public void testSickLeaveVacationRequest() throws ParseException {
-
-		loginstep.login(Constants.PMuser, Constants.PMpassword);
-		loginstep.clickVacation();
-		newrequest.clickOnNewVacationRequest();	
-		newrequest.clickToSelectStartDateOfVacation(11, 29, 2014);
-	    newrequest.clickToSelectEndDateOfVacation(11, 28, 2016);
-		newrequest.chooseSickLeaveVacationType();
-		newrequest.addComment();
-		newrequest.addContentToComment("anything..");
-		newrequest.clickOnSaveButton();
-		//newrequest.clickOnCancel();
-		newrequest.logOut();
-	}
+//		@Test
+//		public void testSpecialVacationRequestMarriageType() throws ParseException {
+//
+//			loginstep.login(Constants.PMuser, Constants.PMpassword);
+//			loginstep.clickVacation();
+//			newrequest.clickOnNewVacationRequest();	
+//			newrequest.clickToSelectStartDateOfVacation(11, 7, 2014);
+//		    newrequest.clickToSelectEndDateOfVacation(11, 7, 2014);
+//			newrequest.chooseSpecialVacationType();
+//			newrequest.chooseMarriageVacationType();
+//			newrequest.addComment();
+//			newrequest.addContentToComment("anything..");
+//			newrequest.clickOnSaveButton();
+//			//newrequest.clickOnCancel();
+//			newrequest.verifyIfSucceed("Your request completed successfully.");
+//			newrequest.clickOnWithdrawButton();
+//			newrequest.logOut();
+//		}
+//		
+//		
+//		
+//		@Test
+//		public void testSpecialVacationRequestChildBirthType() throws ParseException {
+//
+//			loginstep.login(Constants.PMuser, Constants.PMpassword);
+//			loginstep.clickVacation();
+//			newrequest.clickOnNewVacationRequest();	
+//			newrequest.clickToSelectStartDateOfVacation(10, 28, 2014);
+//		    newrequest.clickToSelectEndDateOfVacation(10, 28, 2014);
+//			newrequest.chooseSpecialVacationType();
+//			newrequest.chooseChildBirthVacationType();
+//			newrequest.addComment();
+//			newrequest.addContentToComment("anything..");
+//			newrequest.clickOnSaveButton();
+//			
+//			//newrequest.clickOnCancel();
+//			newrequest.logOut();
+//		}
+//		
+//		
+//		
+//		@Test
+//		public void testSpecialvacationRequestFuneralType() throws ParseException {
+//
+//			loginstep.login(Constants.PMuser, Constants.PMpassword);
+//			loginstep.clickVacation();
+//			newrequest.clickOnNewVacationRequest();	
+//			newrequest.clickToSelectStartDateOfVacation(11, 13, 2014);
+//		    newrequest.clickToSelectEndDateOfVacation(11, 13, 2014);
+//			newrequest.chooseSpecialVacationType();
+//			newrequest.chooseFuneralVacationType();
+//			newrequest.addComment();
+//			newrequest.addContentToComment("anything..");
+//			newrequest.clickOnSaveButton();
+//			//newrequest.clickOnCancel();
+//			newrequest.logOut();
+//		}
+//	
+//	
+//	
+//	
+//	@Test
+//	public void testHolidayVacationRequest() throws ParseException {
+//
+//		loginstep.login(Constants.PMuser, Constants.PMpassword);
+//		loginstep.clickVacation();
+//		newrequest.clickOnNewVacationRequest();	
+//		newrequest.clickToSelectStartDateOfVacation(11, 15, 2014);
+//	    newrequest.clickToSelectEndDateOfVacation(11, 17, 2014);
+//		newrequest.chooseHolidayVacationType();
+//		newrequest.addComment();
+//		newrequest.addContentToComment("anything..");
+//		newrequest.clickOnSaveButton();
+//		//newrequest.clickOnCancel();
+//		newrequest.logOut();
+//	}
+//	
+//	
+//	@Test
+//	public void testVacationWithoutPaymentRequest() throws ParseException {
+//
+//		loginstep.login(Constants.PMuser, Constants.PMpassword);
+//		loginstep.clickVacation();
+//		newrequest.clickOnNewVacationRequest();	
+//		newrequest.clickToSelectStartDateOfVacation(11, 11, 2014);
+//	    newrequest.clickToSelectEndDateOfVacation(11, 11, 2014);
+//		newrequest.chooseVacationWithoutPaymentType();
+//		newrequest.addComment();
+//		newrequest.addContentToComment("anything..");
+//		newrequest.clickOnSaveButton();
+//		//newrequest.clickOnCancel();
+//		newrequest.logOut();
+//	}
+//	
+//	
+//	
+//	@Test
+//	public void testSickLeaveVacationRequest() throws ParseException {
+//
+//		loginstep.login(Constants.PMuser, Constants.PMpassword);
+//		loginstep.clickVacation();
+//		newrequest.clickOnNewVacationRequest();	
+//		newrequest.clickToSelectStartDateOfVacation(11, 29, 2014);
+//	    newrequest.clickToSelectEndDateOfVacation(11, 28, 2016);
+//		newrequest.chooseSickLeaveVacationType();
+//		newrequest.addComment();
+//		newrequest.addContentToComment("anything..");
+//		newrequest.clickOnSaveButton();
+//		//newrequest.clickOnCancel();
+//		newrequest.logOut();
+//	}
 
 }
